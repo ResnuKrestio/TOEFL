@@ -25,7 +25,7 @@ public class About {
 		pbtRadioButton.setBounds(20, 5, 20, 5);
 		JRadioButton itpRadioButton = new JRadioButton("ITP");
 		itpRadioButton.setBounds(25, 5, 20, 5);
-		JRadioButton scoreRadioButton = new JRadioButton("SCORE");
+		JRadioButton scoreRadioButton = new JRadioButton("SKORE");
 		scoreRadioButton.setBounds(30, 5, 20, 5);
 		JRadioButton regulationRadioButton = new JRadioButton("REGULATION");
 		regulationRadioButton.setBounds(35, 5, 20, 5);
