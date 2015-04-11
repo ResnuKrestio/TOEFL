@@ -17,7 +17,7 @@ public class About {
 		panelAbout.setBounds(1, 1, MainFrame.navigationPanel.getWidth()-5, MainFrame.navigationPanel.getHeight()-5);
 		JLabel label = new JLabel("What's TOEFL");
 		label.setBounds(1, 1, 50, 20);
-		JRadioButton historyRadioButton = new JRadioButton("SEJARAH");
+		JRadioButton historyRadioButton = new JRadioButton("HYSTORI");
 		historyRadioButton.setBounds(10, 5, 20, 5);
 		JRadioButton ibtRadioButton = new JRadioButton("IBT");
 		ibtRadioButton.setBounds(15, 5, 20, 5);
