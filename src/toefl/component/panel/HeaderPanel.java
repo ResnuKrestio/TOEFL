@@ -9,8 +9,8 @@ public class HeaderPanel extends JPanel {
 	final static int HEIGHT = 150;
 	
 	public HeaderPanel() {
-		setLayout(null);
 		setSize(WIDTH, HEIGHT);
+		setLayout(null);
 	}
 
 }
