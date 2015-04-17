@@ -3,9 +3,7 @@ package screen;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.Window;
 import java.awt.image.BufferedImage;
-import java.io.File;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -15,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
+import net.miginfocom.swing.MigLayout;
 import toefl.component.panel.HeaderPanel;
 import toefl.component.panel.NavigationPanel;
 import toefl.component.panel.WorkspacePanel;
@@ -48,7 +47,7 @@ public class MainFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public MainFrame() {
-		
+		setLayout(new MigLayout());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1024, 700);
 		contentPane = new JPanel();
@@ -64,8 +63,8 @@ public class MainFrame extends JFrame {
 		
 		workspacePanel.setBounds(150, 150, 858, 550);
 		workspacePanel.setBackground(new Color(240, 248, 255));
-		contentPane.setLayout(null);
-		contentPane.add(headerPanel);
+		contentPane.setLayout(new MigLayout());
+		contentPane.add(headerPanel,"wrap, pushx, growx");
 		try {
 			BufferedImage image = ImageIO.read(getClass().getResourceAsStream("HeadLogo.png"));
 			JLabel imageLabel = new JLabel(new ImageIcon(image));	
