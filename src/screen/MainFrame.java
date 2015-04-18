@@ -47,7 +47,7 @@ public class MainFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public MainFrame() {
-		setLayout(new MigLayout());
+		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1024, 700);
 		contentPane = new JPanel();
@@ -63,7 +63,7 @@ public class MainFrame extends JFrame {
 		
 		workspacePanel.setBounds(150, 150, 858, 550);
 		workspacePanel.setBackground(new Color(240, 248, 255));
-		contentPane.setLayout(new MigLayout());
+		contentPane.setLayout(null);
 		contentPane.add(headerPanel,"wrap, pushx, growx");
 		try {
 			BufferedImage image = ImageIO.read(getClass().getResourceAsStream("HeadLogo.png"));
