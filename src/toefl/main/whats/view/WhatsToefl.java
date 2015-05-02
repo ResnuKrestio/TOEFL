@@ -125,6 +125,33 @@ public class WhatsToefl {
 				}
 			}
 		});
+		
+		itpRadioButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JTextArea textArea = new JTextArea();				
+				JScrollPane areaScrollPane = new JScrollPane(textArea,
+		                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+		                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);;	
+				areaScrollPane.setBounds(1, 1, MainFrame.workspacePanel.getWidth(),
+						MainFrame.workspacePanel.getHeight());
+				
+				textArea.setBounds(1, 1, areaScrollPane.getWidth(),
+						areaScrollPane.getHeight());
+				try {
+					FileReader textReader = new FileReader("src/toefl/main/whats/view/ITP.txt");
+					BufferedReader reader = new BufferedReader(textReader);
+					textArea.read(reader, "Test Read .txt");
+					MainFrame.workspacePanel.removeAll();
+					MainFrame.workspacePanel.add(areaScrollPane);
+					MainFrame.workspacePanel.repaint();
+					reader.close();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
 
 		panelAbout.setLayout(new GridLayout(8, 1));
 		panelAbout.add(label);
