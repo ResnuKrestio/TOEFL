@@ -1,6 +1,7 @@
 package toefl.main.whats.view;
 
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,6 +12,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import screen.MainFrame;
@@ -47,20 +49,80 @@ public class WhatsToefl {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JTextArea textArea = new JTextArea();
-				textArea.setBounds(1, 1, MainFrame.workspacePanel.getWidth(),
+				JTextArea textArea = new JTextArea();				
+				JScrollPane areaScrollPane = new JScrollPane(textArea,
+		                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+		                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);;	
+				areaScrollPane.setBounds(1, 1, MainFrame.workspacePanel.getWidth(),
 						MainFrame.workspacePanel.getHeight());
+				
+				textArea.setBounds(1, 1, areaScrollPane.getWidth(),
+						areaScrollPane.getHeight());
 				try {
-					FileReader textReader = new FileReader(
-							"F://App Herry/History.txt");
-					BufferedReader buffer = new BufferedReader(textReader);
-					textArea.read(buffer, "Test Read .txt");
-					buffer.close();
+					FileReader textReader = new FileReader("src/toefl/main/whats/view/History.txt");
+					BufferedReader reader = new BufferedReader(textReader);
+					textArea.read(reader, "Test Read .txt");
+					MainFrame.workspacePanel.removeAll();
+					MainFrame.workspacePanel.add(areaScrollPane);
 					MainFrame.workspacePanel.repaint();
+					reader.close();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}				
+			}
+		});
+		
+		ibtRadioButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JTextArea textArea = new JTextArea();				
+				JScrollPane areaScrollPane = new JScrollPane(textArea,
+		                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+		                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);;	
+				areaScrollPane.setBounds(1, 1, MainFrame.workspacePanel.getWidth(),
+						MainFrame.workspacePanel.getHeight());
+				
+				textArea.setBounds(1, 1, areaScrollPane.getWidth(),
+						areaScrollPane.getHeight());
+				try {
+					FileReader textReader = new FileReader("src/toefl/main/whats/view/IBT.txt");
+					BufferedReader reader = new BufferedReader(textReader);
+					textArea.read(reader, "Test Read .txt");
+					MainFrame.workspacePanel.removeAll();
+					MainFrame.workspacePanel.add(areaScrollPane);
+					MainFrame.workspacePanel.repaint();
+					reader.close();
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
-				MainFrame.workspacePanel.add(textArea);
+			}
+		});
+		
+		pbtRadioButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JTextArea textArea = new JTextArea();				
+				JScrollPane areaScrollPane = new JScrollPane(textArea,
+		                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+		                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);;	
+				areaScrollPane.setBounds(1, 1, MainFrame.workspacePanel.getWidth(),
+						MainFrame.workspacePanel.getHeight());
+				
+				textArea.setBounds(1, 1, areaScrollPane.getWidth(),
+						areaScrollPane.getHeight());
+				try {
+					FileReader textReader = new FileReader("src/toefl/main/whats/view/PBT.txt");
+					BufferedReader reader = new BufferedReader(textReader);
+					textArea.read(reader, "Test Read .txt");
+					MainFrame.workspacePanel.removeAll();
+					MainFrame.workspacePanel.add(areaScrollPane);
+					MainFrame.workspacePanel.repaint();
+					reader.close();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
 			}
 		});
 

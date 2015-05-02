@@ -57,7 +57,7 @@ public class MainFrame extends JFrame {
 
 		navigationPanel.setBorder(UIManager.getBorder("InternalFrame.border"));
 		navigationPanel.setBounds(0, headerPanel.getHeight(),
-				navigationPanel.getWidth(), navigationPanel.getHeight());
+		navigationPanel.getWidth(), navigationPanel.getHeight());
 		navigationPanel.setBackground(new Color(240, 248, 255));
 		workspacePanel.setBorder(UIManager.getBorder("InternalFrame.border"));
 
