@@ -3,6 +3,9 @@ package screen;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
@@ -16,12 +19,15 @@ import javax.swing.UIManager;
 import toefl.component.panel.HeaderPanel;
 import toefl.component.panel.NavigationPanel;
 import toefl.component.panel.WorkspacePanel;
+import toefl.main.abouts.view.AboutThisApp;
 import toefl.main.whats.view.WhatsToefl;
 
 public class MainFrame extends JFrame {
 
+	
 	private JPanel contentPane;
-	WhatsToefl about = new WhatsToefl();
+	WhatsToefl whats = new WhatsToefl();
+	AboutThisApp about = new AboutThisApp();
 	public static WorkspacePanel workspacePanel = new WorkspacePanel();
 	public static HeaderPanel headerPanel = new HeaderPanel();
 	public static NavigationPanel navigationPanel = new NavigationPanel();
@@ -32,7 +38,7 @@ public class MainFrame extends JFrame {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
+				try {					
 					MainFrame frame = new MainFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -79,11 +85,34 @@ public class MainFrame extends JFrame {
 		btnWhats.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnWhats.setBounds(34, 111, 150, 35);
 		headerPanel.add(btnWhats);
+		btnWhats.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				navigationPanel.removeAll();
+				workspacePanel.removeAll();
+				navigationPanel.add(whats.Whats());
+				MainFrame.this.repaint();
+				MainFrame.this.revalidate();
+			}
+		});
 
 		JButton btnAbout = new JButton("ABOUT THIS APP");
 		btnAbout.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnAbout.setBounds(194, 111, 150, 35);
 		headerPanel.add(btnAbout);
+		btnAbout.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				navigationPanel.removeAll();
+				workspacePanel.removeAll();
+				navigationPanel.add(about.Abouts());
+				MainFrame.this.repaint();
+				MainFrame.this.revalidate();
+				
+			}
+		});
 
 		JButton btnExercise = new JButton("EXERCISE");
 		btnExercise.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -107,7 +136,7 @@ public class MainFrame extends JFrame {
 		JLabel jLabel = new JLabel("Test");
 		jLabel.setBounds(10, 45, 89, 23);
 
-		navigationPanel.add(about.Abouts());
+		navigationPanel.add(whats.Whats());
 		contentPane.add(navigationPanel);
 		contentPane.add(workspacePanel);
 
