@@ -3,11 +3,13 @@ package screen;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -17,12 +19,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
-import config.ConfigurationManager;
 import toefl.component.panel.HeaderPanel;
 import toefl.component.panel.NavigationPanel;
 import toefl.component.panel.WorkspacePanel;
 import toefl.main.abouts.view.AboutThisApp;
+import toefl.main.mynotes.model.MyNoteObj;
+import toefl.main.mynotes.view.MyNotes;
+import toefl.main.option.view.Option;
 import toefl.main.whats.view.WhatsToefl;
+import config.ConfigurationManager;
 
 public class MainFrame extends JFrame {
 
@@ -30,6 +35,8 @@ public class MainFrame extends JFrame {
 	private JPanel contentPane;
 	WhatsToefl whats = new WhatsToefl();
 	AboutThisApp about = new AboutThisApp();
+	Option option = new Option();
+	MyNotes myNotes = new MyNotes();
 	public static WorkspacePanel workspacePanel = new WorkspacePanel();
 	public static HeaderPanel headerPanel = new HeaderPanel();
 	public static NavigationPanel navigationPanel = new NavigationPanel();
@@ -135,14 +142,35 @@ public class MainFrame extends JFrame {
 		btnOption.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnOption.setBounds(674, 111, 150, 35);
 		headerPanel.add(btnOption);
+		btnOption.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				navigationPanel.removeAll();
+				workspacePanel.removeAll();
+				workspacePanel.add(option.option());
+				MainFrame.this.repaint();
+				MainFrame.this.revalidate();
+			}
+		});
 
 		JButton btnMyNotes = new JButton("MY NOTES");
 		btnMyNotes.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnMyNotes.setBounds(834, 111, 150, 35);
 		headerPanel.add(btnMyNotes);
-		JLabel jLabel = new JLabel("Test");
-		jLabel.setBounds(10, 45, 89, 23);
-
+		
+		btnMyNotes.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				navigationPanel.removeAll();
+				workspacePanel.removeAll();
+				navigationPanel.add(myNotes.myNote());
+				MainFrame.this.repaint();
+				MainFrame.this.revalidate();
+			}
+		});
+		
 		navigationPanel.add(whats.Whats());
 		contentPane.add(navigationPanel);
 		contentPane.add(workspacePanel);
