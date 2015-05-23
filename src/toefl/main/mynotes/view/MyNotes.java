@@ -66,9 +66,9 @@ public class MyNotes {
 		myNoteObjs.add(obj2);
 		myNoteObjs.add(obj3);
 		myNoteObjs.add(obj4);
-		JTable table = new JTable();
+		
 		DefaultTableModel model = new DefaultTableModel();
-
+		model.setColumnIdentifiers(columnName);
 		for (MyNoteObj myNoteObj : myNoteObjs) {
 			Object[] objects = new Object[3];
 			objects[0] = myNoteObj.getDate();
@@ -76,13 +76,11 @@ public class MyNotes {
 			objects[2] = myNoteObj.getPaket();
 			model.addRow(objects);
 		}
-
-		model.setColumnIdentifiers(columnName);
-		table.setModel(model);
-		table.setPreferredScrollableViewportSize(new Dimension(300,50));
+		JTable table = new JTable(model);
+		table.setPreferredScrollableViewportSize(new Dimension(300,200));
 		table.setFillsViewportHeight(true);
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 10, 300, 50);
+		scrollPane.setBounds(10, 10, 300, 200);
 		scrollPane.setViewportView(table);
 		panelTable.add(scrollPane);
 		panelTable.setBounds(1, 1, MainFrame.workspacePanel.getWidth(), MainFrame.workspacePanel.getHeight());
