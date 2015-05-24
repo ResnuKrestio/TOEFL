@@ -77,10 +77,10 @@ public class MyNotes {
 			model.addRow(objects);
 		}
 		JTable table = new JTable(model);
-		table.setPreferredScrollableViewportSize(new Dimension(300,200));
+		table.setPreferredScrollableViewportSize(new Dimension(300,100));
 		table.setFillsViewportHeight(true);
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 10, 300, 200);
+		scrollPane.setBounds(10, 10, 300, 100);
 		scrollPane.setViewportView(table);
 		panelTable.add(scrollPane);
 		panelTable.setBounds(1, 1, MainFrame.workspacePanel.getWidth(), MainFrame.workspacePanel.getHeight());

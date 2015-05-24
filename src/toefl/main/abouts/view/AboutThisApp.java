@@ -16,6 +16,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import config.ConfigurationManager;
 import screen.MainFrame;
 
 /**
@@ -54,7 +55,7 @@ public class AboutThisApp {
 				textArea.setBounds(1, 1, areaScrollPane.getWidth(),
 						areaScrollPane.getHeight());
 				try {
-					FileReader textReader = new FileReader("src/toefl/main/abouts/view/WhatsToeflComesEasy.txt");
+					FileReader textReader = new FileReader(ConfigurationManager.getConfiguration("whatstoeflcomeseasy"));
 					BufferedReader reader = new BufferedReader(textReader);
 					textArea.read(reader, "Test Read .txt");
 					MainFrame.workspacePanel.removeAll();
@@ -81,7 +82,7 @@ public class AboutThisApp {
 				textArea.setBounds(1, 1, areaScrollPane.getWidth(),
 						areaScrollPane.getHeight());
 				try {
-					FileReader textReader = new FileReader("src/toefl/main/abouts/view/WhatInThisApplication.txt");
+					FileReader textReader = new FileReader(ConfigurationManager.getConfiguration("whatinthisapplication"));
 					BufferedReader reader = new BufferedReader(textReader);
 					textArea.read(reader, "Test Read .txt");
 					MainFrame.workspacePanel.removeAll();
@@ -108,7 +109,7 @@ public class AboutThisApp {
 				textArea.setBounds(1, 1, areaScrollPane.getWidth(),
 						areaScrollPane.getHeight());
 				try {
-					FileReader textReader = new FileReader("src/toefl/main/abouts/view/HowToUse.txt");
+					FileReader textReader = new FileReader(ConfigurationManager.getConfiguration("howtouse"));
 					BufferedReader reader = new BufferedReader(textReader);
 					textArea.read(reader, "Test Read .txt");
 					MainFrame.workspacePanel.removeAll();
