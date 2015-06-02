@@ -25,6 +25,7 @@ import toefl.main.mynotes.view.MyNotes;
 import toefl.main.option.view.Option;
 import toefl.main.whats.view.WhatsToefl;
 import config.ConfigurationManager;
+import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame {
@@ -66,6 +67,7 @@ public class MainFrame extends JFrame {
 	 */
 	
 	public MainFrame() {
+		
 		getContentPane().setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1034, 700);
@@ -77,11 +79,11 @@ public class MainFrame extends JFrame {
 
 		navigationPanel.setBorder(UIManager.getBorder("InternalFrame.border"));
 		navigationPanel.setBounds(10, 150,
-		240, 500);
+		250, 500);
 		navigationPanel.setBackground(new Color(240, 248, 255));
 		workspacePanel.setBorder(UIManager.getBorder("InternalFrame.border"));
 
-		workspacePanel.setBounds(250, 150, 758, 500);
+		workspacePanel.setBounds(251, 150, 758, 500);
 		workspacePanel.setBackground(new Color(240, 248, 255));
 		contentPane.setLayout(null);
 		contentPane.add(headerPanel, "wrap, pushx, growx");
