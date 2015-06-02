@@ -139,7 +139,7 @@ public class WhatsToefl {
 						textArea.setBounds(1, 1, areaScrollPane.getWidth(),
 								areaScrollPane.getHeight());
 						try {
-							FileReader textReader = new FileReader(ConfigurationManager.getConfiguration("CBT"));
+							FileReader textReader = new FileReader(ConfigurationManager.getConfiguration("cbt"));
 							BufferedReader reader = new BufferedReader(textReader);
 							textArea.read(reader, "Test Read .txt");
 							MainFrame.workspacePanel.removeAll();
