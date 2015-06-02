@@ -4,7 +4,7 @@ public class Exercise {
 
 	int id;
 	String name;
-	int package_id;
+	int packageId;
 	
 	public int getId() {
 		return id;
@@ -19,9 +19,9 @@ public class Exercise {
 		this.name = name;
 	}
 	public int getPackage_id() {
-		return package_id;
+		return packageId;
 	}
 	public void setPackage_id(int package_id) {
-		this.package_id = package_id;
+		this.packageId = package_id;
 	}
 }

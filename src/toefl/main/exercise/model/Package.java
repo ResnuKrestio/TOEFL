@@ -5,6 +5,7 @@ public class Package {
 	int id;
 	String name;
 	int duration;
+	
 	public int getId() {
 		return id;
 	}
