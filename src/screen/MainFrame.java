@@ -20,6 +20,7 @@ import toefl.component.panel.HeaderPanel;
 import toefl.component.panel.NavigationPanel;
 import toefl.component.panel.WorkspacePanel;
 import toefl.main.abouts.view.AboutThisApp;
+import toefl.main.exercise.view.MenuExercise;
 import toefl.main.mynotes.view.MyNotes;
 import toefl.main.option.view.Option;
 import toefl.main.whats.view.WhatsToefl;
@@ -34,6 +35,7 @@ public class MainFrame extends JFrame {
 	AboutThisApp about = new AboutThisApp();
 	Option option = new Option();
 	MyNotes myNotes = new MyNotes();
+	MenuExercise exercise = new MenuExercise();
 	public static WorkspacePanel workspacePanel = new WorkspacePanel();
 	public static HeaderPanel headerPanel = new HeaderPanel();
 	public static NavigationPanel navigationPanel = new NavigationPanel();
@@ -129,16 +131,27 @@ public class MainFrame extends JFrame {
 		JButton btnExercise = new JButton("EXERCISE");
 		btnExercise.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnExercise.setBounds(350, 111, 150, 35);
-		headerPanel.add(btnExercise);
+		headerPanel.add(btnExercise);		
+		btnExercise.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				navigationPanel.removeAll();
+				workspacePanel.removeAll();
+				navigationPanel.add(exercise.exerciseMenus());
+				MainFrame.this.repaint();
+				MainFrame.this.revalidate();
+			}
+		});
 
 		JButton btnAnswerKey = new JButton("ANSWER KEY");
+		btnAnswerKey.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnAnswerKey.setBounds(520, 111, 150, 35);
+		headerPanel.add(btnAnswerKey);		
 		btnAnswerKey.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnAnswerKey.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnAnswerKey.setBounds(520, 111, 150, 35);
-		headerPanel.add(btnAnswerKey);
 
 		JButton btnOption = new JButton("OPTION");
 		btnOption.setFont(new Font("Tahoma", Font.BOLD, 12));
