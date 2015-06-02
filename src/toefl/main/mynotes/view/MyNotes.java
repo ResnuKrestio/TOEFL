@@ -3,10 +3,8 @@
  */
 package toefl.main.mynotes.view;
 
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
@@ -15,8 +13,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
@@ -99,7 +97,7 @@ public class MyNotes {
 		groupButton.add(myProgress);
 		groupButton.add(myQuotation);
 
-		panelMyNotes.setLayout(new GridLayout(8, 1));
+		panelMyNotes.setLayout(new BoxLayout(panelMyNotes, BoxLayout.Y_AXIS));
 		panelMyNotes.add(myProgress);
 		panelMyNotes.add(myQuotation);
 		return panelMyNotes;

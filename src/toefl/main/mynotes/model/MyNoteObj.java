@@ -3,7 +3,6 @@
  */
 package toefl.main.mynotes.model;
 
-import java.util.Date;
 
 /**
  * @author Resnu

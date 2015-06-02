@@ -1,12 +1,12 @@
 package toefl.main.whats.view;
 
 import java.awt.Component;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -27,19 +27,22 @@ public class WhatsToefl {
 		JRadioButton historyRadioButton = new JRadioButton("HISTORY");
 		historyRadioButton.setBounds(10, 5, 20, 5);
 		JRadioButton ibtRadioButton = new JRadioButton("IBT");
-		ibtRadioButton.setBounds(15, 5, 20, 5);
+		ibtRadioButton.setBounds(15, 10, 20, 5);
 		JRadioButton pbtRadioButton = new JRadioButton("PBT");
-		pbtRadioButton.setBounds(20, 5, 20, 5);
+		pbtRadioButton.setBounds(20, 10, 20, 5);
+		JRadioButton cbtRadioButton = new JRadioButton("CBT");
+		cbtRadioButton.setBounds(25, 10, 20, 5);
 		JRadioButton itpRadioButton = new JRadioButton("ITP");
-		itpRadioButton.setBounds(25, 5, 20, 5);
+		itpRadioButton.setBounds(30, 10, 20, 5);
 		JRadioButton scoreRadioButton = new JRadioButton("Nilai");
-		scoreRadioButton.setBounds(30, 5, 20, 5);
+		scoreRadioButton.setBounds(35, 10, 20, 5);
 		JRadioButton regulationRadioButton = new JRadioButton("REGULATION");
-		regulationRadioButton.setBounds(35, 5, 20, 5);
+		regulationRadioButton.setBounds(40, 10, 20, 5);
 		ButtonGroup groupButton = new ButtonGroup();
 		groupButton.add(historyRadioButton);
 		groupButton.add(ibtRadioButton);
 		groupButton.add(pbtRadioButton);
+		groupButton.add(cbtRadioButton);
 		groupButton.add(itpRadioButton);
 		groupButton.add(scoreRadioButton);
 		groupButton.add(regulationRadioButton);
@@ -48,7 +51,7 @@ public class WhatsToefl {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JTextArea textArea = new JTextArea();				
+				JTextArea textArea = new JTextArea();
 				JScrollPane areaScrollPane = new JScrollPane(textArea,
 						JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 						JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);;	
@@ -122,6 +125,32 @@ public class WhatsToefl {
 						}
 			}
 		});
+		
+		cbtRadioButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JTextArea textArea = new JTextArea();				
+				JScrollPane areaScrollPane = new JScrollPane(textArea,
+						JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+						JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);;	
+						areaScrollPane.setBounds(1, 1, MainFrame.workspacePanel.getWidth(),MainFrame.workspacePanel.getHeight());
+
+						textArea.setBounds(1, 1, areaScrollPane.getWidth(),
+								areaScrollPane.getHeight());
+						try {
+							FileReader textReader = new FileReader(ConfigurationManager.getConfiguration("cbt"));
+							BufferedReader reader = new BufferedReader(textReader);
+							textArea.read(reader, "Test Read .txt");
+							MainFrame.workspacePanel.removeAll();
+							MainFrame.workspacePanel.add(areaScrollPane);
+							MainFrame.workspacePanel.repaint();
+							reader.close();
+						} catch (Exception e1) {
+							e1.printStackTrace();
+						}
+			}
+		});
 
 		itpRadioButton.addActionListener(new ActionListener() {
 
@@ -148,11 +177,12 @@ public class WhatsToefl {
 			}
 		});
 
-		panelAbout.setLayout(new GridLayout(8, 1, 1, 1));
+		panelAbout.setLayout(new BoxLayout(panelAbout, BoxLayout.Y_AXIS));
 		panelAbout.add(label);
 		panelAbout.add(historyRadioButton);
 		panelAbout.add(ibtRadioButton);
 		panelAbout.add(pbtRadioButton);
+		panelAbout.add(cbtRadioButton);
 		panelAbout.add(itpRadioButton);
 		panelAbout.add(scoreRadioButton);
 		panelAbout.add(regulationRadioButton);

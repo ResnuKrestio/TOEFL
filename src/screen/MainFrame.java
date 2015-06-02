@@ -7,9 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -23,12 +20,12 @@ import toefl.component.panel.HeaderPanel;
 import toefl.component.panel.NavigationPanel;
 import toefl.component.panel.WorkspacePanel;
 import toefl.main.abouts.view.AboutThisApp;
-import toefl.main.mynotes.model.MyNoteObj;
 import toefl.main.mynotes.view.MyNotes;
 import toefl.main.option.view.Option;
 import toefl.main.whats.view.WhatsToefl;
 import config.ConfigurationManager;
 
+@SuppressWarnings("serial")
 public class MainFrame extends JFrame {
 
 	
@@ -65,10 +62,11 @@ public class MainFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
 	public MainFrame() {
-		setLayout(null);
+		getContentPane().setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1024, 700);
+		setBounds(100, 100, 1034, 700);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(75, 0, 130));
 
@@ -76,12 +74,12 @@ public class MainFrame extends JFrame {
 		headerPanel.setBackground(new Color(75, 0, 130));
 
 		navigationPanel.setBorder(UIManager.getBorder("InternalFrame.border"));
-		navigationPanel.setBounds(0, headerPanel.getHeight(),
-		navigationPanel.getWidth(), navigationPanel.getHeight());
+		navigationPanel.setBounds(10, 150,
+		240, 500);
 		navigationPanel.setBackground(new Color(240, 248, 255));
 		workspacePanel.setBorder(UIManager.getBorder("InternalFrame.border"));
 
-		workspacePanel.setBounds(250, 150, 758, 550);
+		workspacePanel.setBounds(250, 150, 758, 500);
 		workspacePanel.setBackground(new Color(240, 248, 255));
 		contentPane.setLayout(null);
 		contentPane.add(headerPanel, "wrap, pushx, growx");
@@ -89,15 +87,15 @@ public class MainFrame extends JFrame {
 			BufferedImage image = ImageIO.read(getClass().getResourceAsStream(
 					"HeadLogo.png"));
 			JLabel imageLabel = new JLabel(new ImageIcon(image));
-			imageLabel.setBounds(0, 0, 1008, 100);
+			imageLabel.setBounds(10, 0, 1008, 100);
 			headerPanel.add(imageLabel);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		JButton btnWhats = new JButton("WHAT'S TOEFL");
-		btnWhats.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnWhats.setBounds(34, 111, 150, 35);
+		btnWhats.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnWhats.setBounds(10, 111, 150, 35);
 		headerPanel.add(btnWhats);
 		btnWhats.addActionListener(new ActionListener() {
 			
@@ -112,8 +110,8 @@ public class MainFrame extends JFrame {
 		});
 
 		JButton btnAbout = new JButton("ABOUT THIS APP");
-		btnAbout.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnAbout.setBounds(194, 111, 150, 35);
+		btnAbout.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnAbout.setBounds(180, 111, 150, 35);
 		headerPanel.add(btnAbout);
 		btnAbout.addActionListener(new ActionListener() {
 			
@@ -129,18 +127,22 @@ public class MainFrame extends JFrame {
 		});
 
 		JButton btnExercise = new JButton("EXERCISE");
-		btnExercise.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnExercise.setBounds(354, 111, 150, 35);
+		btnExercise.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnExercise.setBounds(350, 111, 150, 35);
 		headerPanel.add(btnExercise);
 
 		JButton btnAnswerKey = new JButton("ANSWER KEY");
-		btnAnswerKey.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnAnswerKey.setBounds(514, 111, 150, 35);
+		btnAnswerKey.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnAnswerKey.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnAnswerKey.setBounds(520, 111, 150, 35);
 		headerPanel.add(btnAnswerKey);
 
 		JButton btnOption = new JButton("OPTION");
-		btnOption.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnOption.setBounds(674, 111, 150, 35);
+		btnOption.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnOption.setBounds(690, 111, 150, 35);
 		headerPanel.add(btnOption);
 		btnOption.addActionListener(new ActionListener() {
 			
@@ -155,8 +157,8 @@ public class MainFrame extends JFrame {
 		});
 
 		JButton btnMyNotes = new JButton("MY NOTES");
-		btnMyNotes.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnMyNotes.setBounds(834, 111, 150, 35);
+		btnMyNotes.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnMyNotes.setBounds(858, 111, 150, 35);
 		headerPanel.add(btnMyNotes);
 		
 		btnMyNotes.addActionListener(new ActionListener() {

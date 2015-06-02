@@ -4,20 +4,20 @@
 package toefl.main.abouts.view;
 
 import java.awt.Component;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import config.ConfigurationManager;
 import screen.MainFrame;
+import config.ConfigurationManager;
 
 /**
  * @author Resnu
@@ -123,7 +123,7 @@ public class AboutThisApp {
 		});
 		
 		
-		panelAbout.setLayout(new GridLayout(8, 1));
+		panelAbout.setLayout(new BoxLayout(panelAbout, BoxLayout.Y_AXIS));
 		panelAbout.add(first);
 		panelAbout.add(second);
 		panelAbout.add(third);
