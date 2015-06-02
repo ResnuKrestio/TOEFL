@@ -1,5 +1,6 @@
 package toefl.main.exercise.view;
 
+import java.awt.Container;
 import java.awt.Font;
 import java.awt.Image;
 
@@ -13,6 +14,8 @@ import javax.swing.SwingConstants;
 import screen.MainFrame;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Title extends JPanel {
 
@@ -44,6 +47,19 @@ public class Title extends JPanel {
 		}
 		btnStart.setBounds(302, 146, 151, 50);		
 		add(btnStart);
+		
+		btnStart.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				ExercisePane exercise = new ExercisePane();
+				exercise.setBounds(0, 0, exercise.getWidth(), exercise.getHeight());
+				PopUpExercise.exerciseFrame.getContentPane().removeAll();
+				PopUpExercise.exerciseFrame.getContentPane().add(exercise);				
+				PopUpExercise.exerciseFrame.revalidate();
+				PopUpExercise.exerciseFrame.repaint();
+			}
+		});
 		
 		JLabel lblStart = new JLabel("Click START to Begin The Exercise");
 		lblStart.setBounds(250, 189, 230, 50);
