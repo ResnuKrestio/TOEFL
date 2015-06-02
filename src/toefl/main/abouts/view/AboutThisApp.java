@@ -27,8 +27,7 @@ public class AboutThisApp {
 	
 	public Component Abouts() {
 		JPanel panelAbout = new JPanel();
-		panelAbout.setBounds(1, 1, MainFrame.navigationPanel.getWidth() - 5,
-				MainFrame.navigationPanel.getHeight() - 5);
+		panelAbout.setBounds(1, 1, MainFrame.navigationPanel.getWidth() - 5,MainFrame.navigationPanel.getHeight() - 5);
 		JRadioButton first = new JRadioButton("TOEFL is an easy Application");
 		first.setBounds(1, 1, 50, 20);
 		JRadioButton second = new JRadioButton("Whats In This Application");
@@ -46,14 +45,10 @@ public class AboutThisApp {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JTextArea textArea = new JTextArea();				
-				JScrollPane areaScrollPane = new JScrollPane(textArea,
-		                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-		                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);;	
-				areaScrollPane.setBounds(1, 1, MainFrame.workspacePanel.getWidth(),
-						MainFrame.workspacePanel.getHeight());
+				JScrollPane areaScrollPane = new JScrollPane(textArea,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);	
+				areaScrollPane.setBounds(1, 1, MainFrame.workspacePanel.getWidth(),MainFrame.workspacePanel.getHeight());
 				
-				textArea.setBounds(1, 1, areaScrollPane.getWidth(),
-						areaScrollPane.getHeight());
+				textArea.setBounds(1, 1, areaScrollPane.getWidth(),areaScrollPane.getHeight());
 				try {
 					FileReader textReader = new FileReader(ConfigurationManager.getConfiguration("whatstoeflcomeseasy"));
 					BufferedReader reader = new BufferedReader(textReader);
