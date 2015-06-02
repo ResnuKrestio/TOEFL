@@ -16,7 +16,7 @@ public class PopUpExercise {
 		Title title2 = new Title();
 	
 		title2.setBounds(0, 0, title2.getWidth(), title2.getHeight());
-		
+		exerciseFrame.getContentPane().removeAll();
 		exerciseFrame.getContentPane().add(title2);
 		
 		exerciseFrame.setSize(MainFrame.workspacePanel.getWidth(), MainFrame.workspacePanel.getHeight());
