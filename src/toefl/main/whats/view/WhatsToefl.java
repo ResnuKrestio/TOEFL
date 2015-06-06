@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextPane;
 
 import screen.MainFrame;
 import config.ConfigurationManager;
@@ -51,7 +52,7 @@ public class WhatsToefl {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JTextArea textArea = new JTextArea();
+				JTextPane textArea = new JTextPane();
 				JScrollPane areaScrollPane = new JScrollPane(textArea,
 						JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 						JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);;	
@@ -77,7 +78,7 @@ public class WhatsToefl {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JTextArea textArea = new JTextArea();				
+				JTextPane textArea = new JTextPane();				
 				JScrollPane areaScrollPane = new JScrollPane(textArea,
 						JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 						JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);;	
@@ -104,7 +105,7 @@ public class WhatsToefl {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JTextArea textArea = new JTextArea();				
+				JTextPane textArea = new JTextPane();				
 				JScrollPane areaScrollPane = new JScrollPane(textArea,
 						JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 						JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);;	
@@ -130,7 +131,7 @@ public class WhatsToefl {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JTextArea textArea = new JTextArea();				
+				JTextPane textArea = new JTextPane();				
 				JScrollPane areaScrollPane = new JScrollPane(textArea,
 						JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 						JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);;	
@@ -156,7 +157,7 @@ public class WhatsToefl {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JTextArea textArea = new JTextArea();				
+				JTextPane textArea = new JTextPane();				
 				JScrollPane areaScrollPane = new JScrollPane(textArea,
 						JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 						JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);;	

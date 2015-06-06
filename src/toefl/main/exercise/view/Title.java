@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,8 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
-import org.eclipse.swt.internal.theme.Theme;
-
+import config.ConfigurationManager;
 import screen.MainFrame;
 
 @SuppressWarnings("serial")
@@ -34,6 +34,7 @@ public class Title extends JPanel {
 	String c = "C";
 	String d = "D";
 	String e = "E";
+	String label;
 	Timer timer;
 
 	/**
@@ -68,17 +69,13 @@ public class Title extends JPanel {
 
 		JButton btnStart = new JButton();
 		try {
-			Image image = ImageIO.read(getClass().getResourceAsStream(
-					"startButton.png"));
+			Image image = ImageIO.read(getClass().getResourceAsStream("startButton.png"));
 			btnStart.setIcon(new ImageIcon(image));
 		} catch (Exception ex) {
 			// TODO: handle exception
 		}
 		btnStart.setBounds(302, 146, 151, 50);
 		add(btnStart);
-		
-		
-		
 		btnStart.addActionListener(new ActionListener() {
 			
 			@Override
@@ -86,72 +83,7 @@ public class Title extends JPanel {
 				start();
 			}
 		});	
-				/*for (int i = 0; i < store.length; i++) {*/
-					
-//				counter(counter);
-//				
-				
-				
-				/*Timer timer = null;
-				
-				for (final String string : strings) {
-					
-					timer = new Timer(3000, new ActionListener() {
 
-						@Override
-						public void actionPerformed(ActionEvent e) {
-							
-							System.out.println("ini di for - "+strings.indexOf(string));
-							
-//							System.out.println("Lagi di - "
-//									+ string);
-//							ExercisePane exercise = new ExercisePane(string);
-//							exercise.setBounds(0, 0, exercise.getWidth(),
-//									exercise.getHeight());
-//							PopUpExercise.exerciseFrame.getContentPane()
-//									.removeAll();
-//							PopUpExercise.exerciseFrame.getContentPane().add(
-//									exercise);					
-//							PopUpExercise.exerciseFrame.revalidate();
-//							PopUpExercise.exerciseFrame.repaint();
-						}
-						
-					}); //timer.stop();
-					timer.start();
-				}*/
-				
-				/*for (String string : strings) {
-					try {
-						Thread.sleep(3000);
-						System.out.println(string);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}*/
-				
-//			}
-//
-//			private void counter(final int counter) {
-//				ActionListener actionListener = new ActionListener() {
-//						
-//					int counter2;
-//						@Override
-//						public void actionPerformed(ActionEvent e) {
-//							//System.out.println("ini di for - "+strings.indexOf(string));
-//							//System.out.println(string);
-//							//System.out.println(store[i]);
-//							counter2=counter+1;
-//							
-//							System.out.println(counter2);
-//						}
-//					};
-//				//}
-//				
-//				Timer timer = new Timer(500, actionListener);
-//				timer.start();
-//			}
-//
-//		});
 
 		JLabel lblStart = new JLabel("Click START to Begin The Exercise");
 		lblStart.setBounds(250, 189, 230, 50);
@@ -164,72 +96,37 @@ public class Title extends JPanel {
 	public void start() {
 		
 		for (String string : strings) {
+			label = string;
+			timer = new Timer(delay, new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					PopUpExercise.exerciseFrame.repaint();
+					ExercisePane exercise = new ExercisePane(label);
+					exercise.setBounds(0, 0, exercise.getWidth(),
+							exercise.getHeight());
+					PopUpExercise.exerciseFrame.getContentPane()
+							.removeAll();
+					PopUpExercise.exerciseFrame.getContentPane().add(
+							exercise);
+					PopUpExercise.exerciseFrame.revalidate();
+					
+					System.out.println("ini di timer");
+					if (strings.indexOf(label)==4) {
+						timer.stop();
+					}
+				}
+			});
 			
-			try {
-				Thread.sleep(3000);
-				ExercisePane exercise = new ExercisePane(string);
-				exercise.setBounds(0, 0, exercise.getWidth(),
-						exercise.getHeight());
-				PopUpExercise.exerciseFrame.getContentPane()
-						.removeAll();
-				PopUpExercise.exerciseFrame.getContentPane().add(
-						exercise);					
-				PopUpExercise.exerciseFrame.revalidate();
-				PopUpExercise.exerciseFrame.repaint();
-				System.out.println(string);
-				
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
-			
-			/*if (counter == 0) {
-				timer.stop();				
-				ExercisePane exercise = new ExercisePane(string);
-				exercise.setBounds(0, 0, exercise.getWidth(),
-						exercise.getHeight());
-				PopUpExercise.exerciseFrame.getContentPane()
-						.removeAll();
-				PopUpExercise.exerciseFrame.getContentPane().add(
-						exercise);					
-				PopUpExercise.exerciseFrame.revalidate();
-				PopUpExercise.exerciseFrame.repaint();
-			} else {
-				ExercisePane.string = "Wait for " + counter + " sec";
-				counter--;
-				System.out.println(string);
-				System.out.println(counter);
-			}*/
-		}
-		
-//		ActionListener actionListener = new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				for (String string : strings) {
-//					if (counter == 0) {
-//						timer.stop();
-//						
-//						ExercisePane exercise = new ExercisePane(string);
-//						exercise.setBounds(0, 0, exercise.getWidth(),
-//								exercise.getHeight());
-//						PopUpExercise.exerciseFrame.getContentPane()
-//								.removeAll();
-//						PopUpExercise.exerciseFrame.getContentPane().add(
-//								exercise);					
-//						PopUpExercise.exerciseFrame.revalidate();
-//						PopUpExercise.exerciseFrame.repaint();
-//					} else {
-//						ExercisePane.string = "Wait for " + counter + " sec";
-//						counter--;
-//						System.out.println(string);
-//						System.out.println(counter);
-//					}
-//				}
+			timer.start();
+//			try {
+//				Thread.sleep(3000);
+//				
+//				System.out.println(string);
+//				
+//			} catch (Exception e) {
+//				// TODO: handle exception
 //			}
-//		};
-//		timer = new Timer(delay, actionListener);
-//		timer.setInitialDelay(0);
-//		timer.start();
+			
+		}
 	}
-
 }

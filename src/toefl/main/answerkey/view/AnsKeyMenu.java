@@ -1,35 +1,33 @@
-/**
- * 
- */
-package toefl.main.exercise.view;
+package toefl.main.answerkey.view;
 
-import java.awt.Component;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
+import javax.swing.BoxLayout;
 
 import screen.MainFrame;
+import toefl.main.exercise.view.PopUpExercise;
 
-/**
- * @author Resnu
- *
- */
-public class MenuExercise {
-	String param = "exercise";
-	public Component exerciseMenus(){
+@SuppressWarnings("serial")
+public class AnsKeyMenu extends JPanel {
+
+	String param = "anskey";
+	
+	/**
+	 * Create the panel.
+	 */
+	public AnsKeyMenu() {
 		
-		JPanel menusExercise = new JPanel();
-		JScrollPane scrollPane = new JScrollPane(menusExercise,
-				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+		JScrollPane scrollPane = new JScrollPane(this, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPane.setBounds(1, 1, MainFrame.navigationPanel.getWidth()-5,MainFrame.navigationPanel.getHeight()-5);
-		menusExercise.setBounds(1, 1, scrollPane.getWidth(),scrollPane.getHeight());
+		setBounds(1, 1, MainFrame.navigationPanel.getWidth()-5,MainFrame.navigationPanel.getHeight()-5);
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
 		Label lbl37s = new Label("37 SECOND DURATION");
 		lbl37s.setBounds(1, 1, 20, 10);
@@ -88,24 +86,22 @@ public class MenuExercise {
 		group.add(exc1125s);
 		group.add(exc1225s);
 		
-		menusExercise.setLayout(new BoxLayout(menusExercise, BoxLayout.Y_AXIS));
-		menusExercise.add(lbl37s);
-		menusExercise.add(exc137s);
-		menusExercise.add(exc237s);
-		menusExercise.add(exc337s);
-		menusExercise.add(lbl30s);
-		menusExercise.add(exc430s);
-		menusExercise.add(exc530s);
-		menusExercise.add(exc630s);
-		menusExercise.add(exc730s);
-		menusExercise.add(lbl25s);
-		menusExercise.add(exc825s);
-		menusExercise.add(exc925s);
-		menusExercise.add(exc1025s);
-		menusExercise.add(exc1125s);
-		menusExercise.add(exc1225s);
-		
-		return scrollPane;
+		add(lbl37s);
+		add(exc137s);
+		add(exc237s);
+		add(exc337s);
+		add(lbl30s);
+		add(exc430s);
+		add(exc530s);
+		add(exc630s);
+		add(exc730s);
+		add(lbl25s);
+		add(exc825s);
+		add(exc925s);
+		add(exc1025s);
+		add(exc1125s);
+		add(exc1225s);
+
 	}
 
 }

@@ -20,6 +20,7 @@ import toefl.component.panel.HeaderPanel;
 import toefl.component.panel.NavigationPanel;
 import toefl.component.panel.WorkspacePanel;
 import toefl.main.abouts.view.AboutThisApp;
+import toefl.main.answerkey.view.AnsKeyMenu;
 import toefl.main.exercise.view.MenuExercise;
 import toefl.main.mynotes.view.MyNotes;
 import toefl.main.option.view.Option;
@@ -36,6 +37,7 @@ public class MainFrame extends JFrame {
 	Option option = new Option();
 	MyNotes myNotes = new MyNotes();
 	MenuExercise exercise = new MenuExercise();
+	AnsKeyMenu ansKeyMenu = new AnsKeyMenu();
 	public static WorkspacePanel workspacePanel = new WorkspacePanel();
 	public static HeaderPanel headerPanel = new HeaderPanel();
 	public static NavigationPanel navigationPanel = new NavigationPanel();
@@ -89,8 +91,7 @@ public class MainFrame extends JFrame {
 		contentPane.setLayout(null);
 		contentPane.add(headerPanel, "wrap, pushx, growx");
 		try {
-			BufferedImage image = ImageIO.read(getClass().getResourceAsStream(
-					"HeadLogo.png"));
+			BufferedImage image = ImageIO.read(getClass().getResourceAsStream("headLogo.png"));
 			JLabel imageLabel = new JLabel(new ImageIcon(image));
 			imageLabel.setBounds(10, 0, 1008, 100);
 			headerPanel.add(imageLabel);
@@ -153,6 +154,11 @@ public class MainFrame extends JFrame {
 		headerPanel.add(btnAnswerKey);		
 		btnAnswerKey.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				navigationPanel.removeAll();
+				workspacePanel.removeAll();
+				navigationPanel.add(ansKeyMenu);
+				MainFrame.this.repaint();
+				MainFrame.this.revalidate();
 			}
 		});
 
