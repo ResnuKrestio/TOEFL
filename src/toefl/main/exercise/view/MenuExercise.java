@@ -3,7 +3,6 @@
  */
 package toefl.main.exercise.view;
 
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Label;
 import java.awt.event.ActionEvent;

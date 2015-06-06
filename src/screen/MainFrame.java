@@ -53,6 +53,7 @@ public class MainFrame extends JFrame {
 			public void run() {
 				try {					
 					MainFrame frame = new MainFrame();
+					frame.setResizable(false);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
