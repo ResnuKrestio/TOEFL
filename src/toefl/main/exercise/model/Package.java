@@ -1,6 +1,6 @@
 package toefl.main.exercise.model;
 
-public class Package {
+public class Package{
 
 	int id;
 	String name;
