@@ -17,13 +17,12 @@ public class ConnectionManager{
 	private static Connection con;
 	private static Statement stmt;
 	private static jdbcDriver driver;
-	private static ResultSet rs;
 
 	public ConnectionManager() {
 
 	}
 
-	public static void init() throws IOException{
+	public static Statement init() throws IOException{
 		properties = new Properties();
 		driver = new org.hsqldb.jdbcDriver();
 		properties.load(ConnectionManager.class.getClassLoader().getResourceAsStream("connection.properties"));
@@ -31,24 +30,14 @@ public class ConnectionManager{
 			DriverManager.registerDriver(driver);
 			con = DriverManager.getConnection(properties.getProperty("url"), properties.getProperty("username"), properties.getProperty("password"));
 			stmt = con.createStatement();
-			String sql = "SELECT * FROM PACKAGE;";
-			rs =  stmt.executeQuery(sql);
-
-			while (rs.next()) {
-				int id = rs.getInt("ID");
-				String name = rs.getString("NAME");
-			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				rs.close();
-				stmt.close();
-				con.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
 		}
+		return stmt;
+	}
+
+	public static void close() throws SQLException {
+		stmt.close();
+		con.close();
 	}
 }
