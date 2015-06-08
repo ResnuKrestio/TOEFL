@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -25,7 +26,7 @@ import screen.MainFrame;
 public class Title extends JPanel {
 
 	private int counter = 10;
-	private int delay = 3000;
+	private int delay = 2000;
 	List<String> strings = new ArrayList<String>();
 	int exercise = 0;
 	String time = null;
@@ -36,6 +37,7 @@ public class Title extends JPanel {
 	String e = "E";
 	String label;
 	Timer timer;
+	Iterator<String> i = strings.iterator();
 
 	/**
 	 * Create the panel.
@@ -69,7 +71,7 @@ public class Title extends JPanel {
 
 		JButton btnStart = new JButton();
 		try {
-			Image image = ImageIO.read(getClass().getResourceAsStream("startButton.png"));
+		Image image = ImageIO.read(getClass().getResourceAsStream("startButton.png"));
 			btnStart.setIcon(new ImageIcon(image));
 		} catch (Exception ex) {
 			// TODO: handle exception
@@ -81,6 +83,8 @@ public class Title extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				start();
+				PopUpExercise.exerciseFrame.revalidate();
+				PopUpExercise.exerciseFrame.repaint();
 			}
 		});	
 
@@ -95,38 +99,30 @@ public class Title extends JPanel {
 	
 	public void start() {
 		
-		for (String string : strings) {
-			label = string;
 			timer = new Timer(delay, new ActionListener() {
+				
 				@Override
-				public void actionPerformed(ActionEvent e) {
-					PopUpExercise.exerciseFrame.repaint();
-					ExercisePane exercise = new ExercisePane(label);
-					exercise.setBounds(0, 0, exercise.getWidth(),
-							exercise.getHeight());
-					PopUpExercise.exerciseFrame.getContentPane()
-							.removeAll();
-					PopUpExercise.exerciseFrame.getContentPane().add(
-							exercise);
-					PopUpExercise.exerciseFrame.revalidate();
-					
-					System.out.println("ini di timer");
-					if (strings.indexOf(label)==4) {
+				public void actionPerformed(ActionEvent e) {					
+					if (i.hasNext()) {
+						System.out.println(i.hasNext());
+						ExercisePane exercise = new ExercisePane(i.next());
+						exercise.setBounds(0, 0, exercise.getWidth(),exercise.getHeight());
+						PopUpExercise.exerciseFrame.getContentPane().removeAll();
+						PopUpExercise.exerciseFrame.getContentPane().add(exercise);
+						PopUpExercise.exerciseFrame.revalidate();
+						PopUpExercise.exerciseFrame.repaint();
+					} else {
 						timer.stop();
-					}
+					}					
 				}
 			});
-			
+			ExercisePane exercise = new ExercisePane("Preparing Your Exercise");
+			exercise.setBounds(0, 0, exercise.getWidth(),exercise.getHeight());
+			PopUpExercise.exerciseFrame.getContentPane().removeAll();
+			PopUpExercise.exerciseFrame.getContentPane().add(exercise);
+			PopUpExercise.exerciseFrame.revalidate();
+			PopUpExercise.exerciseFrame.repaint();
 			timer.start();
-//			try {
-//				Thread.sleep(3000);
-//				
-//				System.out.println(string);
-//				
-//			} catch (Exception e) {
-//				// TODO: handle exception
-//			}
-			
-		}
+				
 	}
 }
