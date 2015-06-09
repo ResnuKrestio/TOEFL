@@ -51,7 +51,7 @@ public class Datapool {
 	
 	public static List<Exercise> getListExercises(){
 		List<Exercise> listExercises = new ArrayList<>();
-		for (Exercise exercise : listExercises) {
+		for (Exercise exercise : exercises) {
 			for (Question question : questions) {
 				if (question.getExerciseId()==exercise.getId()){
 					exercise.getQuestions().add(question);
