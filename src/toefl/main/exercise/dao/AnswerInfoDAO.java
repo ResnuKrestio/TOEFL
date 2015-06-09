@@ -16,7 +16,7 @@ public class AnswerInfoDAO implements DAO<AnswerInfo>{
 	private static String INSERT = "";
 	private static String UPDATE = "";
 	private static String DELETE = "";
-	private static String SQL = "SELECT * FROM ANSWER";
+	private static String SQL = "SELECT * FROM ANSWER_INFO";
 	AnswerInfo answerInfo;
 	List<AnswerInfo> answerInfos;
 	Statement stmt;
