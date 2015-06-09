@@ -18,10 +18,10 @@ public class Exercise {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getPackage_id() {
+	public int getPackageId() {
 		return packageId;
 	}
-	public void setPackage_id(int package_id) {
-		this.packageId = package_id;
+	public void setPackageId(int packageId) {
+		this.packageId = packageId;
 	}
 }

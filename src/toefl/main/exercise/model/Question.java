@@ -12,11 +12,11 @@ public class Question {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getExercise_id() {
+	public int getExerciseId() {
 		return exerciseId;
 	}
-	public void setExercise_id(int exercise_id) {
-		this.exerciseId = exercise_id;
+	public void setExerciseId(int exerciseId) {
+		this.exerciseId = exerciseId;
 	}
 	public String getQuestion() {
 		return question;

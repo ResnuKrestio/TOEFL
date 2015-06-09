@@ -16,42 +16,40 @@ public class Answer {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getExercise_id() {
+	public int getExerciseId() {
 		return exerciseId;
 	}
-	public void setExercise_id(int exercise_id) {
-		this.exerciseId = exercise_id;
+	public void setExerciseId(int exerciseId) {
+		this.exerciseId = exerciseId;
 	}
-	public int getQuestion_id() {
+	public int getQuestionId() {
 		return questionId;
 	}
-	public void setQuestion_id(int question_id) {
-		this.questionId = question_id;
+	public void setQuestionId(int questionId) {
+		this.questionId = questionId;
 	}
-	public String getAnswer_a() {
+	public String getAnswerA() {
 		return answerA;
 	}
-	public void setAnswer_a(String answer_a) {
-		this.answerA = answer_a;
+	public void setAnswerA(String answerA) {
+		this.answerA = answerA;
 	}
-	public String getAnswer_b() {
+	public String getAnswerB() {
 		return answerB;
 	}
-	public void setAnswer_b(String answer_b) {
-		this.answerB = answer_b;
+	public void setAnswerB(String answerB) {
+		this.answerB = answerB;
 	}
-	public String getAnswer_c() {
+	public String getAnswerC() {
 		return answerC;
 	}
-	public void setAnswer_c(String answer_c) {
-		this.answerC = answer_c;
+	public void setAnswerC(String answerC) {
+		this.answerC = answerC;
 	}
-	public String getAnswer_d() {
+	public String getAnswerD() {
 		return answerD;
 	}
-	public void setAnswer_d(String answer_d) {
-		this.answerD = answer_d;
+	public void setAnswerD(String answerD) {
+		this.answerD = answerD;
 	}
-	
-	
 }

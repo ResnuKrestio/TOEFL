@@ -4,7 +4,7 @@ public class AnswerInfo {
 
 	int id;
 	int answerId;
-	char rightAnswer;
+	String rightAnswer;
 	String keyword;
 	String gramaticalDisc;
 	String explanation;
@@ -22,10 +22,10 @@ public class AnswerInfo {
 	public void setAnswerId(int answerId) {
 		this.answerId = answerId;
 	}
-	public char getRightAnswer() {
+	public String getRightAnswer() {
 		return rightAnswer;
 	}
-	public void setRightAnswer(char rightAnswer) {
+	public void setRightAnswer(String rightAnswer) {
 		this.rightAnswer = rightAnswer;
 	}
 	public String getKeyword() {
