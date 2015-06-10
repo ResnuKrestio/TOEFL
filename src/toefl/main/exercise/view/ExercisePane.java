@@ -9,15 +9,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import screen.MainFrame;
+import toefl.main.exercise.model.Answer;
+import toefl.main.exercise.model.Exercise;
+import toefl.main.exercise.model.Question;
 
 @SuppressWarnings("serial")
 public class ExercisePane extends JPanel {
 
 	public static String string;
+	public static JLabel lblDetik = new JLabel();
 	/**
 	 * Create the panel.
 	 */
-	public ExercisePane(String label) {
+	public ExercisePane(Question question, Answer answer) {
 		
 		
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -29,10 +33,50 @@ public class ExercisePane extends JPanel {
 		mainPanel.setBounds(0, 0, MainFrame.workspacePanel.getWidth(), 200);
 		add(mainPanel);
 		
-		JLabel lblNewLabel = new JLabel(label);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel.setBounds(350, 81, 116, 34);
-		mainPanel.add(lblNewLabel);
+		JLabel lblSoal = new JLabel(question.getQuestion());
+		lblSoal.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblSoal.setBounds(10, 26, 116, 34);
+		mainPanel.add(lblSoal);
+		
+		JLabel lblA = new JLabel("A.");
+		lblA.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblA.setBounds(10, 94, 46, 14);
+		mainPanel.add(lblA);
+		
+		JLabel lblB = new JLabel("B.");
+		lblB.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblB.setBounds(10, 119, 46, 14);
+		mainPanel.add(lblB);
+		
+		JLabel lblC = new JLabel("C.");
+		lblC.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblC.setBounds(10, 144, 46, 14);
+		mainPanel.add(lblC);
+		
+		JLabel lblD = new JLabel("D.");
+		lblD.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblD.setBounds(10, 169, 46, 14);
+		mainPanel.add(lblD);
+		
+		JLabel lblAnswerA = new JLabel(answer.getAnswerA());
+		lblAnswerA.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblAnswerA.setBounds(40, 94, 600, 14);
+		mainPanel.add(lblAnswerA);
+		
+		JLabel lblAnswerB = new JLabel(answer.getAnswerB());
+		lblAnswerB.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblAnswerB.setBounds(40, 119, 600, 14);
+		mainPanel.add(lblAnswerB);
+		
+		JLabel lblAnswerC = new JLabel(answer.getAnswerC());
+		lblAnswerC.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblAnswerC.setBounds(40, 144, 600, 14);
+		mainPanel.add(lblAnswerC);
+		
+		JLabel lblAnswerD = new JLabel(answer.getAnswerD());
+		lblAnswerD.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		lblAnswerD.setBounds(40, 169, 600, 14);
+		mainPanel.add(lblAnswerD);
 		
 		JPanel footerPanel = new JPanel();
 		footerPanel.setLayout(null);
@@ -65,13 +109,13 @@ public class ExercisePane extends JPanel {
 		footerPanel.add(btnD);
 		btnD.setFont(new Font("Tahoma", Font.BOLD, 18));
 		
-		JLabel lblQuestion = new JLabel("Question ");
+		JLabel lblQuestion = new JLabel(question.getQuestion());
 		lblQuestion.setLocation(10, 189);
-		lblQuestion.setSize(100, 50);
+		lblQuestion.setSize(170, 50);
 		footerPanel.add(lblQuestion);
 		lblQuestion.setFont(new Font("Tahoma", Font.BOLD, 18));
 		
-		JLabel lblDetik = new JLabel(string);
+		
 		lblDetik.setLocation(584, 189);
 		lblDetik.setSize(200, 50);
 		footerPanel.add(lblDetik);

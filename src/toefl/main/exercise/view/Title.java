@@ -19,16 +19,18 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
-import config.ConfigurationManager;
 import screen.MainFrame;
+import toefl.main.exercise.model.Answer;
+import toefl.main.exercise.model.Exercise;
+import toefl.main.exercise.model.Package;
+import toefl.main.exercise.model.Question;
 
 @SuppressWarnings("serial")
 public class Title extends JPanel {
-
-	private int counter = 10;
-	private int delay = 2000;
-	List<String> strings = new ArrayList<String>();
-	int exercise = 0;
+	int count;
+	private int delay;
+	int detik;
+	Exercise exercise;
 	String time = null;
 	String a = "A";
 	String b = "B";
@@ -37,30 +39,24 @@ public class Title extends JPanel {
 	String e = "E";
 	String label;
 	Timer timer;
-	Iterator<String> i = strings.iterator();
+	Timer timer2;
+	
 
 	/**
 	 * Create the panel.
 	 */
-	public Title() {
+	public Title(final Exercise exercise, Package package1) {
+		this.exercise = exercise;
+		count = exercise.getQuestions().size();
+		delay = package1.getDuration()*100;
+		detik = 3000/1000;
 		setLayout(null);
 		setBackground(Color.WHITE);
 		setSize(MainFrame.workspacePanel.getWidth() - 5, 250);		
-		strings.add(a);
-		strings.add(b);
-		strings.add(c);
-		strings.add(d);
-		strings.add(e);
 		
-		final Map<String, String> maps = new HashMap<>();
-		for (String string : strings) {
-			maps.put(string, string);
-		}
-		
-		final String[] store = new String[]{"A","B","C","D","E"};
-		JLabel lblTitle1 = new JLabel("YOU ARE ABOUT THE EXERCISE " + exercise,
+		JLabel lblTitle1 = new JLabel("YOU ARE ABOUT THE " + exercise.getName(),
 				JLabel.CENTER);
-		JLabel lblTitle2 = new JLabel("FOR " + time + " DURATION ",
+		JLabel lblTitle2 = new JLabel("FOR " + package1.getDuration() + " DURATION ",
 				JLabel.CENTER);
 		lblTitle1.setFont(new Font("Lucida Calligraphy", Font.PLAIN, 30));
 		lblTitle1.setBounds(54, 11, 637, 50);
@@ -82,7 +78,10 @@ public class Title extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				start();
+				System.out.println(exercise.getId());
+				final Iterator<Question>iterator=exercise.getQuestions().iterator();
+				final Iterator<Answer>iteAnswer=exercise.getAnswers().iterator();
+				start(iterator, iteAnswer);
 				PopUpExercise.exerciseFrame.revalidate();
 				PopUpExercise.exerciseFrame.repaint();
 			}
@@ -97,26 +96,52 @@ public class Title extends JPanel {
 
 	}
 	
-	public void start() {
+	public void start(final Iterator<Question>iterator, final Iterator<Answer> iterAnwer) {
 		
 			timer = new Timer(delay, new ActionListener() {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {					
-					if (i.hasNext()) {
-						System.out.println(i.hasNext());
-						ExercisePane exercise = new ExercisePane(i.next());
-						exercise.setBounds(0, 0, exercise.getWidth(),exercise.getHeight());
+					if (iterator.hasNext()) {
+						timer2 = new Timer(1000, new ActionListener() {							
+							@Override
+							public void actionPerformed(ActionEvent e) {								
+								if (detik==0&&count==0) {
+									timer2.stop();									
+								}else if (detik==0) {
+									timer2.stop();
+									detik = delay/1000;
+								} else{
+									System.out.println(detik);
+									ExercisePane.lblDetik.setText(detik+" Detik");
+									detik--;
+								}
+							}
+						});
+						
+						count--;
+						System.out.println(count);
+						ExercisePane exerciseP = new ExercisePane(iterator.next(),iterAnwer.next());
+						exerciseP.setBounds(0, 0, exerciseP.getWidth(),exerciseP.getHeight());
 						PopUpExercise.exerciseFrame.getContentPane().removeAll();
-						PopUpExercise.exerciseFrame.getContentPane().add(exercise);
+						PopUpExercise.exerciseFrame.getContentPane().add(exerciseP);
+						
 						PopUpExercise.exerciseFrame.revalidate();
 						PopUpExercise.exerciseFrame.repaint();
-					} else {
+						timer2.start();
+						
+					}
+					
+					if(count==0){
 						timer.stop();
 					}					
 				}
 			});
-			ExercisePane exercise = new ExercisePane("Preparing Your Exercise");
+			Question question = new Question();
+			question.setQuestion("Please Wait");
+			Answer answers = new Answer();
+			System.out.println("id di start"+exercise.getId());
+			ExercisePane exercise = new ExercisePane(question,answers);
 			exercise.setBounds(0, 0, exercise.getWidth(),exercise.getHeight());
 			PopUpExercise.exerciseFrame.getContentPane().removeAll();
 			PopUpExercise.exerciseFrame.getContentPane().add(exercise);

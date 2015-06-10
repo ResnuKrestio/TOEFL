@@ -14,16 +14,20 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 
+import config.Datapool;
 import screen.MainFrame;
+import toefl.main.exercise.model.Exercise;
+import toefl.main.exercise.model.Package;
 
 /**
  * @author Resnu
  *
  */
 public class MenuExercise {
+	
 	String param = "exercise";
 	public Component exerciseMenus(){
-		
+		Datapool.init();
 		JPanel menusExercise = new JPanel();
 		JScrollPane scrollPane = new JScrollPane(menusExercise,
 				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
@@ -46,9 +50,17 @@ public class MenuExercise {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				PopUpExercise exercise = new PopUpExercise();
-				exercise.exerciseWindow(param);
+				for (Package package1 : Datapool.getListPackages()) {
+					for (Exercise exercise : Datapool.getListExercises()) {
+						if (exercise.getName().equalsIgnoreCase("exercise 1")&&exercise.getPackageId()==package1.getId()) {
+							System.out.println("Exercise Id = "+exercise.getPackageId());
+							System.out.println("Package id = "+package1.getId());
+							PopUpExercise exerciseWin = new PopUpExercise();
+							exerciseWin.exerciseWindow(param,exercise,package1);
+						}
+					}
+				}
+				
 			}
 		});
 		JRadioButton exc237s = new JRadioButton("Exercise 2");
