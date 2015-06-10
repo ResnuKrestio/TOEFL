@@ -26,6 +26,7 @@ import toefl.main.mynotes.view.MyNotes;
 import toefl.main.option.view.Option;
 import toefl.main.whats.view.WhatsToefl;
 import config.ConfigurationManager;
+import config.Datapool;
 
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame {

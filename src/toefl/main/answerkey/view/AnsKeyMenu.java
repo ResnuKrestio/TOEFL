@@ -46,7 +46,7 @@ public class AnsKeyMenu extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				PopUpExercise exercise = new PopUpExercise();
-				exercise.exerciseWindow(param);
+				exercise.exerciseWindow(param,null,null);
 			}
 		});
 		JRadioButton exc237s = new JRadioButton("Exercise 2");
