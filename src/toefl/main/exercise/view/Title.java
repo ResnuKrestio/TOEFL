@@ -29,9 +29,9 @@ import toefl.main.exercise.model.Question;
 public class Title extends JPanel {
 	public static Iterator<Question>iterator;
 	public static Iterator<Answer>iteAnswer;
-	int count;
-	private int delay;
-	int detik;
+	public static int count;
+	public static int delay;
+	public static int detik;
 	Exercise exercise;
 	String time = null;
 	String a = "A";
@@ -40,8 +40,8 @@ public class Title extends JPanel {
 	String d = "D";
 	String e = "E";
 	String label;
-	Timer timer;
-	Timer timer2;
+	public static Timer timer;
+	public static Timer timer2;
 	
 
 	/**
@@ -51,8 +51,8 @@ public class Title extends JPanel {
 		this.exercise = exercise;
 		
 		count = exercise.getQuestions().size()+1;
-		delay = package1.getDuration()*100;
-		detik = 3000/1000;
+		delay = package1.getDuration()*1000;
+		detik = 30000/1000;
 		setLayout(null);
 		setBackground(Color.WHITE);
 		setSize(MainFrame.workspacePanel.getWidth() - 5, 250);		

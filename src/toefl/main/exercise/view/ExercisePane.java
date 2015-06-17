@@ -97,8 +97,23 @@ public class ExercisePane extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Title.iterator.next();
+				Title.count--;
+				Title.timer2.stop();
+				Title.detik = Title.delay/1000;
+				ExercisePane exerciseP = new ExercisePane(Title.iterator.next(),Title.iteAnswer.next());
+				exerciseP.setBounds(0, 0, exerciseP.getWidth(),exerciseP.getHeight());
+				PopUpExercise.exerciseFrame.getContentPane().removeAll();
+				PopUpExercise.exerciseFrame.getContentPane().add(exerciseP);						
+				PopUpExercise.exerciseFrame.revalidate();
+				PopUpExercise.exerciseFrame.repaint();
+				System.out.println(Title.count);
 				System.out.println("A");
+				Title.timer.restart();
+				Title.timer2.restart();
+				if (Title.count==0) {
+					Title.timer.stop();
+					Title.timer2.stop();
+				}
 			}
 		});
 		
@@ -113,8 +128,23 @@ public class ExercisePane extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Title.iterator.next();
+				Title.count--;
+				Title.timer2.stop();
+				Title.detik = Title.delay/1000;
+				ExercisePane exerciseP = new ExercisePane(Title.iterator.next(),Title.iteAnswer.next());
+				exerciseP.setBounds(0, 0, exerciseP.getWidth(),exerciseP.getHeight());
+				PopUpExercise.exerciseFrame.getContentPane().removeAll();
+				PopUpExercise.exerciseFrame.getContentPane().add(exerciseP);						
+				PopUpExercise.exerciseFrame.revalidate();
+				PopUpExercise.exerciseFrame.repaint();
+				System.out.println(Title.count);
 				System.out.println("B");
+				Title.timer.restart();
+				Title.timer2.restart();
+				if (Title.count==0) {
+					Title.timer.stop();
+					Title.timer2.stop();
+				}
 			}
 		});
 		
@@ -129,9 +159,23 @@ public class ExercisePane extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				Title.iterator.next();
+				Title.count--;
+				Title.timer2.stop();
+				Title.detik = Title.delay/1000;
+				ExercisePane exerciseP = new ExercisePane(Title.iterator.next(),Title.iteAnswer.next());
+				exerciseP.setBounds(0, 0, exerciseP.getWidth(),exerciseP.getHeight());
+				PopUpExercise.exerciseFrame.getContentPane().removeAll();
+				PopUpExercise.exerciseFrame.getContentPane().add(exerciseP);						
+				PopUpExercise.exerciseFrame.revalidate();
+				PopUpExercise.exerciseFrame.repaint();
+				System.out.println(Title.count);
 				System.out.println("C");
+				Title.timer.restart();
+				Title.timer2.restart();
+				if (Title.count==0) {
+					Title.timer.stop();
+					Title.timer2.stop();
+				}
 			}
 		});
 		
@@ -146,9 +190,23 @@ public class ExercisePane extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				Title.iterator.next();
+				Title.count--;
+				Title.timer2.stop();
+				Title.detik = Title.delay/1000;
+				ExercisePane exerciseP = new ExercisePane(Title.iterator.next(),Title.iteAnswer.next());
+				exerciseP.setBounds(0, 0, exerciseP.getWidth(),exerciseP.getHeight());
+				PopUpExercise.exerciseFrame.getContentPane().removeAll();
+				PopUpExercise.exerciseFrame.getContentPane().add(exerciseP);						
+				PopUpExercise.exerciseFrame.revalidate();
+				PopUpExercise.exerciseFrame.repaint();
+				System.out.println(Title.count);
 				System.out.println("D");
+				Title.timer.restart();
+				Title.timer2.restart();
+				if (Title.count==0) {
+					Title.timer.stop();
+					Title.timer2.stop();
+				}
 			}
 		});
 		
