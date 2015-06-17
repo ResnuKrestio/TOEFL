@@ -2,6 +2,8 @@ package toefl.main.exercise.view;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -90,24 +92,65 @@ public class ExercisePane extends JPanel {
 		btnA.setSize(50, 50);
 		footerPanel.add(btnA);
 		btnA.setFont(new Font("Tahoma", Font.BOLD, 18));
+		
+		btnA.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Title.iterator.next();
+				System.out.println("A");
+			}
+		});
+		
 		JButton btnB = new JButton("B");
 		btnB.setBackground(Color.YELLOW);
 		btnB.setLocation(70, 11);
 		btnB.setSize(50, 50);
 		footerPanel.add(btnB);
 		btnB.setFont(new Font("Tahoma", Font.BOLD, 18));
+		
+		btnB.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Title.iterator.next();
+				System.out.println("B");
+			}
+		});
+		
 		JButton btnC = new JButton("C");
 		btnC.setBackground(Color.YELLOW);
 		btnC.setLocation(130, 11);
 		btnC.setSize(50, 50);
 		footerPanel.add(btnC);
 		btnC.setFont(new Font("Tahoma", Font.BOLD, 18));
+		
+		btnC.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				Title.iterator.next();
+				System.out.println("C");
+			}
+		});
+		
 		JButton btnD = new JButton("D");
 		btnD.setBackground(Color.YELLOW);
 		btnD.setLocation(190, 11);
 		btnD.setSize(50, 50);
 		footerPanel.add(btnD);
 		btnD.setFont(new Font("Tahoma", Font.BOLD, 18));
+		
+		btnD.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				Title.iterator.next();
+				System.out.println("D");
+			}
+		});
 		
 		JLabel lblQuestion = new JLabel(question.getQuestion());
 		lblQuestion.setLocation(10, 189);

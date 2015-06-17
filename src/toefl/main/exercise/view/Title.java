@@ -27,6 +27,8 @@ import toefl.main.exercise.model.Question;
 
 @SuppressWarnings("serial")
 public class Title extends JPanel {
+	public static Iterator<Question>iterator;
+	public static Iterator<Answer>iteAnswer;
 	int count;
 	private int delay;
 	int detik;
@@ -47,7 +49,8 @@ public class Title extends JPanel {
 	 */
 	public Title(final Exercise exercise, Package package1) {
 		this.exercise = exercise;
-		count = exercise.getQuestions().size();
+		
+		count = exercise.getQuestions().size()+1;
 		delay = package1.getDuration()*100;
 		detik = 3000/1000;
 		setLayout(null);
@@ -79,8 +82,8 @@ public class Title extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(exercise.getId());
-				final Iterator<Question>iterator=exercise.getQuestions().iterator();
-				final Iterator<Answer>iteAnswer=exercise.getAnswers().iterator();
+				iterator=exercise.getQuestions().iterator();
+				iteAnswer=exercise.getAnswers().iterator();
 				start(iterator, iteAnswer);
 				PopUpExercise.exerciseFrame.revalidate();
 				PopUpExercise.exerciseFrame.repaint();
@@ -98,7 +101,7 @@ public class Title extends JPanel {
 	
 	public void start(final Iterator<Question>iterator, final Iterator<Answer> iterAnwer) {
 		
-			timer = new Timer(delay, new ActionListener() {
+			timer = new Timer(delay+1000, new ActionListener() {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {					
@@ -118,23 +121,21 @@ public class Title extends JPanel {
 								}
 							}
 						});
-						
+						timer2.start();
 						count--;
 						System.out.println(count);
 						ExercisePane exerciseP = new ExercisePane(iterator.next(),iterAnwer.next());
 						exerciseP.setBounds(0, 0, exerciseP.getWidth(),exerciseP.getHeight());
 						PopUpExercise.exerciseFrame.getContentPane().removeAll();
-						PopUpExercise.exerciseFrame.getContentPane().add(exerciseP);
-						
+						PopUpExercise.exerciseFrame.getContentPane().add(exerciseP);						
 						PopUpExercise.exerciseFrame.revalidate();
-						PopUpExercise.exerciseFrame.repaint();
-						timer2.start();
-						
+						PopUpExercise.exerciseFrame.repaint();						
 					}
 					
 					if(count==0){
 						timer.stop();
-					}					
+					}
+					
 				}
 			});
 			Question question = new Question();
@@ -148,6 +149,6 @@ public class Title extends JPanel {
 			PopUpExercise.exerciseFrame.revalidate();
 			PopUpExercise.exerciseFrame.repaint();
 			timer.start();
-				
+			
 	}
 }
