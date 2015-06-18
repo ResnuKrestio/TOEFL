@@ -1,5 +1,8 @@
 package toefl.main.exercise.model;
 
+import toefl.main.exercise.dao.AnswerDAO;
+import config.Datapool;
+
 public class Answer {
 
 	int id;
@@ -9,6 +12,7 @@ public class Answer {
 	String answerB;
 	String answerC;
 	String answerD;
+	AnswerInfo answerInfo;
 	
 	public int getId() {
 		return id;
@@ -51,5 +55,11 @@ public class Answer {
 	}
 	public void setAnswerD(String answerD) {
 		this.answerD = answerD;
+	}
+	public AnswerInfo getAnswerInfo() {
+		return Datapool.getAnswerInfo(Answer.this);
+	}
+	public void setAnswerInfo(AnswerInfo answerInfo) {
+		this.answerInfo = Datapool.getAnswerInfo(Answer.this);
 	}
 }

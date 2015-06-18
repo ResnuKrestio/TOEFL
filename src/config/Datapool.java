@@ -66,4 +66,24 @@ public class Datapool {
 		}
 		return listExercises;
 	}
+	
+	public static List<Answer> getListAnswerWithAnswerInfo(){
+		for (Answer answer : answers) {
+			for (AnswerInfo answerInfo : answerInfos) {
+				if(answer.getId()==answerInfo.getAnswerId()) answer.setAnswerInfo(answerInfo);
+			}
+		}
+		return answers;
+	}
+	
+	public static List<AnswerInfo> getLisAnswerInfos(){
+		return answerInfos;
+	}
+	
+	public static AnswerInfo getAnswerInfo(Answer answer){
+		for (AnswerInfo answerInfo : getLisAnswerInfos()) {
+			if (answer.getId()==answerInfo.getAnswerId()) return answerInfo;
+		}
+		return null;
+	}
 }
