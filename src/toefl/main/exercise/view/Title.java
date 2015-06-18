@@ -133,7 +133,9 @@ public class Title extends JPanel {
 					}
 					
 					if(count==0){
-						timer.stop();
+						ScoreFrame scoreFrame = new ScoreFrame("550");
+						scoreFrame.setVisible(true);
+						timer.stop();						
 					}
 					
 				}

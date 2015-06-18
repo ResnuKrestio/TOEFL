@@ -8,17 +8,25 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import java.awt.Dialog.ModalExclusionType;
+import java.awt.Window.Type;
+import org.eclipse.wb.swing.FocusTraversalOnArray;
+import java.awt.Component;
 
 public class ScoreFrame extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;	
 
 	/**
 	 * Create the frame.
 	 */
 	public ScoreFrame(String score) {
-		setEnabled(false);
 		setType(Type.UTILITY);
+		setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
 		setTitle("Score");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,5 +61,6 @@ public class ScoreFrame extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton.setBounds(274, 142, 160, 30);
 		panelScore.add(btnNewButton);
+		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{contentPane, panelScore, lblYourScoreIs, lblScore, btnSaveToMyb, btnNewButton}));
 	}
 }
