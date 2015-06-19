@@ -1,5 +1,6 @@
 package toefl.main.exercise.view;
 
+import java.awt.Dialog.ModalExclusionType;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -8,10 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import java.awt.Dialog.ModalExclusionType;
-import java.awt.Window.Type;
-import org.eclipse.wb.swing.FocusTraversalOnArray;
-import java.awt.Component;
 
 public class ScoreFrame extends JFrame {
 
@@ -29,7 +26,7 @@ public class ScoreFrame extends JFrame {
 		setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
 		setTitle("Score");
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 200);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -49,7 +46,7 @@ public class ScoreFrame extends JFrame {
 		
 		JLabel lblScore = new JLabel(score);
 		lblScore.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblScore.setBounds(191, 45, 50, 50);
+		lblScore.setBounds(198, 44, 50, 50);
 		panelScore.add(lblScore);
 		
 		JButton btnSaveToMyb = new JButton("SAVE TO MY PROGRESS");
@@ -61,6 +58,6 @@ public class ScoreFrame extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton.setBounds(274, 142, 160, 30);
 		panelScore.add(btnNewButton);
-		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{contentPane, panelScore, lblYourScoreIs, lblScore, btnSaveToMyb, btnNewButton}));
+		
 	}
 }

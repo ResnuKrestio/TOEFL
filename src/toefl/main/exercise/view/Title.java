@@ -19,14 +19,19 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
+import config.Datapool;
 import screen.MainFrame;
 import toefl.main.exercise.model.Answer;
+import toefl.main.exercise.model.AnswerInfo;
 import toefl.main.exercise.model.Exercise;
 import toefl.main.exercise.model.Package;
 import toefl.main.exercise.model.Question;
 
 @SuppressWarnings("serial")
 public class Title extends JPanel {
+	public static List<String> answers =new ArrayList<String>();
+	static List<String> answerKeys = new ArrayList<String>();
+	static List<String> retainList = new ArrayList<String>();
 	public static Iterator<Question>iterator;
 	public static Iterator<Answer>iteAnswer;
 	public static int count;
@@ -59,7 +64,7 @@ public class Title extends JPanel {
 		
 		JLabel lblTitle1 = new JLabel("YOU ARE ABOUT THE " + exercise.getName(),
 				JLabel.CENTER);
-		JLabel lblTitle2 = new JLabel("FOR " + package1.getDuration() + " DURATION ",
+		JLabel lblTitle2 = new JLabel("FOR " + package1.getDuration() + "SECOND DURATION ",
 				JLabel.CENTER);
 		lblTitle1.setFont(new Font("Lucida Calligraphy", Font.PLAIN, 30));
 		lblTitle1.setBounds(54, 11, 637, 50);
@@ -100,7 +105,7 @@ public class Title extends JPanel {
 	}
 	
 	public void start(final Iterator<Question>iterator, final Iterator<Answer> iterAnwer) {
-		
+		Datapool.init();
 			timer = new Timer(delay+1000, new ActionListener() {
 				
 				@Override
@@ -110,10 +115,12 @@ public class Title extends JPanel {
 							@Override
 							public void actionPerformed(ActionEvent e) {								
 								if (detik==0&&count==0) {
+									getScore();
 									timer2.stop();									
 								}else if (detik==0) {
 									timer2.stop();
 									detik = delay/1000;
+									answers.add("E");
 								} else{
 									System.out.println(detik);
 									ExercisePane.lblDetik.setText(detik+" Detik");
@@ -152,5 +159,23 @@ public class Title extends JPanel {
 			PopUpExercise.exerciseFrame.repaint();
 			timer.start();
 			
+	}
+	
+	public static void getScore() {
+		System.out.println("List answers = "+answers.size());
+		
+		for (AnswerInfo answerKey : Datapool.getLisAnswerInfos()) {
+			answerKeys.add(answerKey.getRightAnswer());
+		}
+		System.out.println("List answersKey = "+answerKeys.size());
+		for (int i = 0; i < answers.size(); i++) {
+			System.out.println("Integer i = "+i);
+			if (answers.get(i).equals(answerKeys.get(i))) {
+				retainList.add(answers.get(i));
+			}
+		}
+		System.out.println("Size List = "+retainList.size());
+		ScoreFrame scoreFrame = new ScoreFrame(Integer.toString(retainList.size()));
+		scoreFrame.setVisible(true);
 	}
 }

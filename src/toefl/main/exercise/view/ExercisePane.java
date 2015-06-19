@@ -97,6 +97,7 @@ public class ExercisePane extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				Title.answers.add("A");
 				Title.count--;
 				Title.timer2.stop();
 				Title.detik = Title.delay/1000;
@@ -111,6 +112,7 @@ public class ExercisePane extends JPanel {
 				Title.timer.restart();
 				Title.timer2.restart();
 				if (Title.count==0) {
+					Title.getScore();
 					Title.timer.stop();
 					Title.timer2.stop();
 				}
@@ -128,6 +130,7 @@ public class ExercisePane extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				Title.answers.add("B");
 				Title.count--;
 				Title.timer2.stop();
 				Title.detik = Title.delay/1000;
@@ -142,6 +145,7 @@ public class ExercisePane extends JPanel {
 				Title.timer.restart();
 				Title.timer2.restart();
 				if (Title.count==0) {
+					Title.getScore();
 					Title.timer.stop();
 					Title.timer2.stop();
 				}
@@ -159,6 +163,7 @@ public class ExercisePane extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				Title.answers.add("C");
 				Title.count--;
 				Title.timer2.stop();
 				Title.detik = Title.delay/1000;
@@ -173,6 +178,7 @@ public class ExercisePane extends JPanel {
 				Title.timer.restart();
 				Title.timer2.restart();
 				if (Title.count==0) {
+					Title.getScore();
 					Title.timer.stop();
 					Title.timer2.stop();
 				}
@@ -190,6 +196,7 @@ public class ExercisePane extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				Title.answers.add("D");
 				Title.count--;
 				Title.timer2.stop();
 				Title.detik = Title.delay/1000;
@@ -204,6 +211,7 @@ public class ExercisePane extends JPanel {
 				Title.timer.restart();
 				Title.timer2.restart();
 				if (Title.count==0) {
+					Title.getScore();
 					Title.timer.stop();
 					Title.timer2.stop();
 				}
