@@ -64,7 +64,7 @@ public class Title extends JPanel {
 		
 		JLabel lblTitle1 = new JLabel("YOU ARE ABOUT THE " + exercise.getName(),
 				JLabel.CENTER);
-		JLabel lblTitle2 = new JLabel("FOR " + package1.getDuration() + "SECOND DURATION ",
+		JLabel lblTitle2 = new JLabel("FOR " + package1.getDuration() + " SECOND DURATION ",
 				JLabel.CENTER);
 		lblTitle1.setFont(new Font("Lucida Calligraphy", Font.PLAIN, 30));
 		lblTitle1.setBounds(54, 11, 637, 50);
@@ -140,8 +140,6 @@ public class Title extends JPanel {
 					}
 					
 					if(count==0){
-						ScoreFrame scoreFrame = new ScoreFrame("550");
-						scoreFrame.setVisible(true);
 						timer.stop();						
 					}
 					

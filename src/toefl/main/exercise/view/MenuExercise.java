@@ -63,28 +63,215 @@ public class MenuExercise {
 				
 			}
 		});
+		
 		JRadioButton exc237s = new JRadioButton("Exercise 2");
 		exc237s.setBounds(30, 40, 20, 10);
+		exc237s.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				for (Package package1 : Datapool.getListPackages()) {
+					for (Exercise exercise : Datapool.getListExercises()) {
+						if (exercise.getName().equalsIgnoreCase("exercise 2")&&exercise.getPackageId()==package1.getId()) {
+							System.out.println("Exercise Id = "+exercise.getPackageId());
+							System.out.println("Package id = "+package1.getId());
+							PopUpExercise exerciseWin = new PopUpExercise();
+							exerciseWin.exerciseWindow(param,exercise,package1);
+						}
+					}
+				}
+			}
+		});
+		
 		JRadioButton exc337s = new JRadioButton("Exercise 3");
 		exc337s.setBounds(30, 60, 20, 10);
+		exc337s.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				for (Package package1 : Datapool.getListPackages()) {
+					for (Exercise exercise : Datapool.getListExercises()) {
+						if (exercise.getName().equalsIgnoreCase("exercise 3")&&exercise.getPackageId()==package1.getId()) {
+							System.out.println("Exercise Id = "+exercise.getPackageId());
+							System.out.println("Package id = "+package1.getId());
+							PopUpExercise exerciseWin = new PopUpExercise();
+							exerciseWin.exerciseWindow(param,exercise,package1);
+						}
+					}
+				}
+			}
+		});
+		
 		JRadioButton exc430s = new JRadioButton("Exercise 4");
 		exc430s.setBounds(30, 100, 20, 10);
+		exc430s.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				for (Package package1 : Datapool.getListPackages()) {
+					for (Exercise exercise : Datapool.getListExercises()) {
+						if (exercise.getName().equalsIgnoreCase("exercise 4")&&exercise.getPackageId()==package1.getId()) {
+							System.out.println("Exercise Id = "+exercise.getPackageId());
+							System.out.println("Package id = "+package1.getId());
+							PopUpExercise exerciseWin = new PopUpExercise();
+							exerciseWin.exerciseWindow(param,exercise,package1);
+						}
+					}
+				}
+			}
+		});
+		
 		JRadioButton exc530s = new JRadioButton("Exercise 5");
 		exc530s.setBounds(30, 120, 20, 10);
+		exc530s.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				for (Package package1 : Datapool.getListPackages()) {
+					for (Exercise exercise : Datapool.getListExercises()) {
+						if (exercise.getName().equalsIgnoreCase("exercise 5")&&exercise.getPackageId()==package1.getId()) {
+							System.out.println("Exercise Id = "+exercise.getPackageId());
+							System.out.println("Package id = "+package1.getId());
+							PopUpExercise exerciseWin = new PopUpExercise();
+							exerciseWin.exerciseWindow(param,exercise,package1);
+						}
+					}
+				}
+			}
+		});
+		
 		JRadioButton exc630s = new JRadioButton("Exercise 6");
 		exc630s.setBounds(30, 140, 20, 10);
+		exc630s.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				for (Package package1 : Datapool.getListPackages()) {
+					for (Exercise exercise : Datapool.getListExercises()) {
+						if (exercise.getName().equalsIgnoreCase("exercise 6")&&exercise.getPackageId()==package1.getId()) {
+							System.out.println("Exercise Id = "+exercise.getPackageId());
+							System.out.println("Package id = "+package1.getId());
+							PopUpExercise exerciseWin = new PopUpExercise();
+							exerciseWin.exerciseWindow(param,exercise,package1);
+						}
+					}
+				}
+			}
+		});
+		
 		JRadioButton exc730s = new JRadioButton("Exercise 7");
 		exc730s.setBounds(30, 160, 20, 10);
+		exc730s.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				for (Package package1 : Datapool.getListPackages()) {
+					for (Exercise exercise : Datapool.getListExercises()) {
+						if (exercise.getName().equalsIgnoreCase("exercise 7")&&exercise.getPackageId()==package1.getId()) {
+							System.out.println("Exercise Id = "+exercise.getPackageId());
+							System.out.println("Package id = "+package1.getId());
+							PopUpExercise exerciseWin = new PopUpExercise();
+							exerciseWin.exerciseWindow(param,exercise,package1);
+						}
+					}
+				}
+			}
+		});
+		
 		JRadioButton exc825s = new JRadioButton("Exercise 8");
 		exc825s.setBounds(30, 200, 20, 10);
+		exc825s.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				for (Package package1 : Datapool.getListPackages()) {
+					for (Exercise exercise : Datapool.getListExercises()) {
+						if (exercise.getName().equalsIgnoreCase("exercise 8")&&exercise.getPackageId()==package1.getId()) {
+							System.out.println("Exercise Id = "+exercise.getPackageId());
+							System.out.println("Package id = "+package1.getId());
+							PopUpExercise exerciseWin = new PopUpExercise();
+							exerciseWin.exerciseWindow(param,exercise,package1);
+						}
+					}
+				}
+			}
+		});
+		
 		JRadioButton exc925s = new JRadioButton("Exercise 9");
 		exc925s.setBounds(30, 220, 20, 10);
+		exc925s.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				for (Package package1 : Datapool.getListPackages()) {
+					for (Exercise exercise : Datapool.getListExercises()) {
+						if (exercise.getName().equalsIgnoreCase("exercise 9")&&exercise.getPackageId()==package1.getId()) {
+							System.out.println("Exercise Id = "+exercise.getPackageId());
+							System.out.println("Package id = "+package1.getId());
+							PopUpExercise exerciseWin = new PopUpExercise();
+							exerciseWin.exerciseWindow(param,exercise,package1);
+						}
+					}
+				}
+			}
+		});
+		
 		JRadioButton exc1025s = new JRadioButton("Exercise 10");
 		exc1025s.setBounds(30, 240, 20, 10);
+		exc1025s.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				for (Package package1 : Datapool.getListPackages()) {
+					for (Exercise exercise : Datapool.getListExercises()) {
+						if (exercise.getName().equalsIgnoreCase("exercise 10")&&exercise.getPackageId()==package1.getId()) {
+							System.out.println("Exercise Id = "+exercise.getPackageId());
+							System.out.println("Package id = "+package1.getId());
+							PopUpExercise exerciseWin = new PopUpExercise();
+							exerciseWin.exerciseWindow(param,exercise,package1);
+						}
+					}
+				}
+			}
+		});
+		
 		JRadioButton exc1125s = new JRadioButton("Exercise 11");
 		exc1125s.setBounds(30, 260, 20, 10);
+		exc1125s.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				for (Package package1 : Datapool.getListPackages()) {
+					for (Exercise exercise : Datapool.getListExercises()) {
+						if (exercise.getName().equalsIgnoreCase("exercise 11")&&exercise.getPackageId()==package1.getId()) {
+							System.out.println("Exercise Id = "+exercise.getPackageId());
+							System.out.println("Package id = "+package1.getId());
+							PopUpExercise exerciseWin = new PopUpExercise();
+							exerciseWin.exerciseWindow(param,exercise,package1);
+						}
+					}
+				}
+			}
+		});
+		
 		JRadioButton exc1225s = new JRadioButton("Exercise 12");
 		exc1225s.setBounds(30, 280, 20, 10);
+		exc1225s.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				for (Package package1 : Datapool.getListPackages()) {
+					for (Exercise exercise : Datapool.getListExercises()) {
+						if (exercise.getName().equalsIgnoreCase("exercise 12")&&exercise.getPackageId()==package1.getId()) {
+							System.out.println("Exercise Id = "+exercise.getPackageId());
+							System.out.println("Package id = "+package1.getId());
+							PopUpExercise exerciseWin = new PopUpExercise();
+							exerciseWin.exerciseWindow(param,exercise,package1);
+						}
+					}
+				}
+			}
+		});
 		
 		ButtonGroup group = new ButtonGroup();
 		group.add(exc137s);
