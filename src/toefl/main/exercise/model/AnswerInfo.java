@@ -9,6 +9,7 @@ public class AnswerInfo {
 	String gramaticalDisc;
 	String explanation;
 	String pdf;
+	int exerciseId;
 	
 	public int getId() {
 		return id;
@@ -51,6 +52,12 @@ public class AnswerInfo {
 	}
 	public void setPdf(String pdf) {
 		this.pdf = pdf;
+	}
+	public int getExerciseId() {
+		return exerciseId;
+	}
+	public void setExerciseId(int exerciseId) {
+		this.exerciseId = exerciseId;
 	}
 	
 	

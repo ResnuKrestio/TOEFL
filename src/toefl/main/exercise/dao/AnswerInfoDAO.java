@@ -37,6 +37,7 @@ public class AnswerInfoDAO implements DAO<AnswerInfo>{
 				answerInfo.setGramaticalDisc(rs.getString("GRAMATICAL_DISC"));
 				answerInfo.setKeyword(rs.getString("KEYWORD"));
 				answerInfo.setPdf(rs.getString("PDF"));
+				answerInfo.setExerciseId(rs.getInt("EXERCISE_ID"));
 				answerInfos.add(answerInfo);
 			}
 		} catch (IOException | SQLException e) {
