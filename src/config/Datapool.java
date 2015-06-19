@@ -62,6 +62,11 @@ public class Datapool {
 					exercise.getAnswers().add(answer);
 				}
 			}
+			for (AnswerInfo answerInfo : answerInfos) {
+				if(answerInfo.getExerciseId()==exercise.getId()){
+					exercise.getAnswerInfos().add(answerInfo);
+				}
+			}
 			listExercises.add(exercise);
 		}
 		return listExercises;

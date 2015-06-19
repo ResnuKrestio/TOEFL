@@ -10,6 +10,7 @@ public class Exercise {
 	int packageId;
 	Collection<Question> questions = new ArrayList<>();
 	Collection<Answer> answers = new ArrayList<>();
+	Collection<AnswerInfo> answerInfos = new ArrayList<>();
 	
 	public int getId() {
 		return id;
@@ -40,5 +41,11 @@ public class Exercise {
 	}
 	public void setAnswers(Collection<Answer> answers) {
 		this.answers = answers;
+	}
+	public Collection<AnswerInfo> getAnswerInfos() {
+		return answerInfos;
+	}
+	public void setAnswerInfos(Collection<AnswerInfo> answerInfos) {
+		this.answerInfos = answerInfos;
 	}
 }
