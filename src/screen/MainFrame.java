@@ -6,7 +6,9 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -93,7 +95,7 @@ public class MainFrame extends JFrame {
 		contentPane.setLayout(null);
 		contentPane.add(headerPanel, "wrap, pushx, growx");
 		try {
-			BufferedImage image = ImageIO.read(getClass().getResourceAsStream("headLogo.png"));
+			BufferedImage image = ImageIO.read(new File("image/HeadLogo.png"));
 			JLabel imageLabel = new JLabel(new ImageIcon(image));
 			imageLabel.setBounds(10, 0, 1008, 100);
 			headerPanel.add(imageLabel);
