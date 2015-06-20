@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import screen.MainFrame;
+import main.MainFrame;
 import toefl.main.exercise.model.Answer;
 import toefl.main.exercise.model.Exercise;
 import toefl.main.exercise.model.Question;

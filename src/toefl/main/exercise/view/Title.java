@@ -19,8 +19,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
+import main.MainFrame;
 import config.Datapool;
-import screen.MainFrame;
 import toefl.main.exercise.model.Answer;
 import toefl.main.exercise.model.AnswerInfo;
 import toefl.main.exercise.model.Exercise;
