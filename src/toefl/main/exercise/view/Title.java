@@ -6,10 +6,8 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -19,13 +17,13 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
-import main.MainFrame;
-import config.Datapool;
+import screen.MainFrame;
 import toefl.main.exercise.model.Answer;
 import toefl.main.exercise.model.AnswerInfo;
 import toefl.main.exercise.model.Exercise;
 import toefl.main.exercise.model.Package;
 import toefl.main.exercise.model.Question;
+import config.Datapool;
 
 @SuppressWarnings("serial")
 public class Title extends JPanel {

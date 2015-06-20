@@ -14,10 +14,10 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 
-import main.MainFrame;
-import config.Datapool;
+import screen.MainFrame;
 import toefl.main.exercise.model.Exercise;
 import toefl.main.exercise.model.Package;
+import config.Datapool;
 
 /**
  * @author Resnu

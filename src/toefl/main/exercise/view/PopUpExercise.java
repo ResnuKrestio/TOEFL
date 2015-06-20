@@ -3,7 +3,7 @@ package toefl.main.exercise.view;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-import main.MainFrame;
+import screen.MainFrame;
 import toefl.main.answerkey.view.AnsKeyPane;
 import toefl.main.exercise.model.Exercise;
 import toefl.main.exercise.model.Package;
