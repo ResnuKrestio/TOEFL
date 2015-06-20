@@ -12,17 +12,19 @@ public class PopUpExercise{
 	public static JFrame exerciseFrame = new JFrame();
 	
 	public void exerciseWindow(String param, Exercise exercise, Package package1){
-		exerciseFrame.setTitle("Question video 30 second duration");
+		
 		if (param == "exercise") {
 			Title title2 = new Title(exercise,package1);	
 			title2.setBounds(0, 0, title2.getWidth(), title2.getHeight());
 			exerciseFrame.getContentPane().removeAll();
 			exerciseFrame.getContentPane().add(title2);
+			exerciseFrame.setTitle("Question video 30 second duration");
 		}else {
 			AnsKeyPane ansKeyPane = new AnsKeyPane();
 			ansKeyPane.setBounds(0, 0, ansKeyPane.getWidth(), ansKeyPane.getHeight());
 			exerciseFrame.getContentPane().removeAll();
 			exerciseFrame.getContentPane().add(ansKeyPane);
+			exerciseFrame.setTitle("ANSWER KEY");
 		}		
 		
 		exerciseFrame.setResizable(false);
