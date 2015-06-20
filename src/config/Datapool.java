@@ -8,11 +8,13 @@ import toefl.main.exercise.dao.AnswerInfoDAO;
 import toefl.main.exercise.dao.ExerciseDAO;
 import toefl.main.exercise.dao.PackageDAO;
 import toefl.main.exercise.dao.QuestionDAO;
+import toefl.main.exercise.dao.ScoreDAO;
 import toefl.main.exercise.model.Answer;
 import toefl.main.exercise.model.AnswerInfo;
 import toefl.main.exercise.model.Exercise;
 import toefl.main.exercise.model.Package;
 import toefl.main.exercise.model.Question;
+import toefl.main.exercise.model.Score;
 
 public class Datapool {
 
@@ -21,12 +23,14 @@ public class Datapool {
 	static List<Question> questions = new ArrayList<>();
 	static List<Answer> answers = new ArrayList<>();
 	static List<AnswerInfo> answerInfos = new ArrayList<>();
+	static List<Score> scores = new ArrayList<Score>();
 	
 	static PackageDAO packageDAO = new PackageDAO();
 	static ExerciseDAO exerciseDAO = new ExerciseDAO();
 	static QuestionDAO questionDAO = new QuestionDAO();
 	static AnswerDAO answerDAO = new AnswerDAO();
 	static AnswerInfoDAO answerInfoDAO = new AnswerInfoDAO();
+	static ScoreDAO scoreDAO = new ScoreDAO();
 	
 	public static void init(){
 		packages = packageDAO.retrieve();
@@ -34,6 +38,7 @@ public class Datapool {
 		questions = questionDAO.retrieve();
 		answers = answerDAO.retrieve();
 		answerInfos = answerInfoDAO.retrieve();
+		scores = scoreDAO.retrieve();
 	}
 	
 	public static List<Package> getListPackages(){
@@ -90,5 +95,9 @@ public class Datapool {
 			if (answer.getId()==answerInfo.getAnswerId()) return answerInfo;
 		}
 		return null;
+	}
+	
+	public static List<Score> getScore() {
+		return scores;
 	}
 }

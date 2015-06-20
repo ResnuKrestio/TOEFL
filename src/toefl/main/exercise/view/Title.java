@@ -23,6 +23,7 @@ import toefl.main.exercise.model.AnswerInfo;
 import toefl.main.exercise.model.Exercise;
 import toefl.main.exercise.model.Package;
 import toefl.main.exercise.model.Question;
+import toefl.main.exercise.model.Score;
 import config.Datapool;
 
 @SuppressWarnings("serial")
@@ -51,6 +52,7 @@ public class Title extends JPanel {
 	 * Create the panel.
 	 */
 	public Title(final Exercise exercise, Package package1) {
+		Datapool.init();
 		this.exercise = exercise;
 		
 		count = exercise.getQuestions().size()+1;
@@ -103,7 +105,7 @@ public class Title extends JPanel {
 	}
 	
 	public void start(final Iterator<Question>iterator, final Iterator<Answer> iterAnwer) {
-		Datapool.init();
+		
 			timer = new Timer(delay+1000, new ActionListener() {
 				
 				@Override
@@ -158,8 +160,8 @@ public class Title extends JPanel {
 	}
 	
 	public static void getScore() {
-		System.out.println("List answers = "+answers.size());
-		
+		int scoreInt = 0;
+		System.out.println("List answers = "+answers.size());		
 		for (AnswerInfo answerKey : Datapool.getLisAnswerInfos()) {
 			answerKeys.add(answerKey.getRightAnswer());
 		}
@@ -170,8 +172,15 @@ public class Title extends JPanel {
 				retainList.add(answers.get(i));
 			}
 		}
+		
+		for (Score score : Datapool.getScore()) {
+			if (score.getTotalRightAnswer() == retainList.size()) {
+				scoreInt = score.getScore();
+			}
+		}
+		
 		System.out.println("Size List = "+retainList.size());
-		ScoreFrame scoreFrame = new ScoreFrame(Integer.toString(retainList.size()));
+		ScoreFrame scoreFrame = new ScoreFrame(Integer.toString(scoreInt));
 		scoreFrame.setVisible(true);
 	}
 }

@@ -1,8 +1,5 @@
 package config;
 
-import javax.xml.crypto.Data;
-
-import toefl.main.exercise.dao.PackageDAO;
 import toefl.main.exercise.model.Exercise;
 import toefl.main.exercise.model.Package;
 import toefl.main.exercise.model.Question;
