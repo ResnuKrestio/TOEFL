@@ -58,6 +58,7 @@ public class MainFrame extends JFrame {
 					MainFrame frame = new MainFrame();
 					frame.setResizable(false);
 					frame.setVisible(true);
+					frame.setTitle("TOEFL structure and written expression");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
