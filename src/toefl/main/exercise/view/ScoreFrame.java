@@ -21,7 +21,7 @@ public class ScoreFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ScoreFrame(String score) {
+	public ScoreFrame(int score) {
 		setType(Type.UTILITY);
 		setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
 		setTitle("Score");
@@ -44,7 +44,7 @@ public class ScoreFrame extends JFrame {
 		lblYourScoreIs.setBounds(151, 11, 135, 22);
 		panelScore.add(lblYourScoreIs);
 		
-		JLabel lblScore = new JLabel(score);
+		JLabel lblScore = new JLabel(Integer.toString(score));
 		lblScore.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblScore.setBounds(198, 44, 50, 50);
 		panelScore.add(lblScore);

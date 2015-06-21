@@ -182,7 +182,7 @@ public class Title extends JPanel {
 		}
 		
 		System.out.println("Size List = "+retainList.size());
-		ScoreFrame scoreFrame = new ScoreFrame(Integer.toString(scoreInt));
+		ScoreFrame scoreFrame = new ScoreFrame(scoreInt);
 		scoreFrame.setVisible(true);
 	}
 }
