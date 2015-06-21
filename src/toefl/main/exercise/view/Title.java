@@ -42,7 +42,6 @@ public class Title extends JPanel {
 	String b = "B";
 	String c = "C";
 	String d = "D";
-	String e = "E";
 	String label;
 	public static Timer timer;
 	public static Timer timer2;
@@ -86,7 +85,7 @@ public class Title extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(exercise.getId());
+				System.out.println("Exercise Id = "+exercise.getId());
 				iterator=exercise.getQuestions().iterator();
 				iteAnswer=exercise.getAnswers().iterator();
 				start(iterator, iteAnswer);
@@ -109,8 +108,19 @@ public class Title extends JPanel {
 			timer = new Timer(delay+1000, new ActionListener() {
 				
 				@Override
-				public void actionPerformed(ActionEvent e) {					
+				public void actionPerformed(ActionEvent e) {
+					count--;
+					System.out.println(count);
+					
+					ExercisePane exerciseP = new ExercisePane(iterator.next(),iterAnwer.next());
+					System.out.println("Iterator hasNext = "+iterator.hasNext()+" iteAnswer hasNext = "+iterAnwer.hasNext());
+					exerciseP.setBounds(0, 0, exerciseP.getWidth(),exerciseP.getHeight());
+					PopUpExercise.exerciseFrame.getContentPane().removeAll();
+					PopUpExercise.exerciseFrame.getContentPane().add(exerciseP);						
+					PopUpExercise.exerciseFrame.revalidate();
+					PopUpExercise.exerciseFrame.repaint();
 					if (iterator.hasNext()) {
+						System.out.println("Iterator hasNext = "+iterator.hasNext());
 						timer2 = new Timer(1000, new ActionListener() {							
 							@Override
 							public void actionPerformed(ActionEvent e) {								
@@ -128,15 +138,7 @@ public class Title extends JPanel {
 								}
 							}
 						});
-						timer2.start();
-						count--;
-						System.out.println(count);
-						ExercisePane exerciseP = new ExercisePane(iterator.next(),iterAnwer.next());
-						exerciseP.setBounds(0, 0, exerciseP.getWidth(),exerciseP.getHeight());
-						PopUpExercise.exerciseFrame.getContentPane().removeAll();
-						PopUpExercise.exerciseFrame.getContentPane().add(exerciseP);						
-						PopUpExercise.exerciseFrame.revalidate();
-						PopUpExercise.exerciseFrame.repaint();						
+						timer2.start();						
 					}
 					
 					if(count==0){
