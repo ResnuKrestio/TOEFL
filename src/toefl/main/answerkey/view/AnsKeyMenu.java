@@ -13,18 +13,14 @@ import javax.swing.BoxLayout;
 import screen.MainFrame;
 import toefl.main.exercise.view.PopUpExercise;
 
-@SuppressWarnings("serial")
 public class AnsKeyMenu extends JPanel {
 
+	private static final long serialVersionUID = -6458642650186704766L;
 	String param = "anskey";
-	
-	/**
-	 * Create the panel.
-	 */
+
 	public AnsKeyMenu() {
 		
-		JScrollPane scrollPane = new JScrollPane(this, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		JScrollPane scrollPane = new JScrollPane(this, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPane.setBounds(1, 1, MainFrame.navigationPanel.getWidth()-5,MainFrame.navigationPanel.getHeight()-5);
 		setBounds(1, 1, MainFrame.navigationPanel.getWidth()-5,MainFrame.navigationPanel.getHeight()-5);
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

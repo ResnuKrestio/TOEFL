@@ -53,5 +53,13 @@ public class PackageDAO implements DAO<Package>{
 		}
 		return packages;
 	}
+
+	@Override
+	public void insert(Package model) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	
 }

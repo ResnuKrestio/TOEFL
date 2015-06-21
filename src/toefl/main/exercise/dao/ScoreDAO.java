@@ -54,4 +54,12 @@ public class ScoreDAO implements DAO<Score>{
 		return null;
 	}
 
+	@Override
+	public void insert(Score model) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 }

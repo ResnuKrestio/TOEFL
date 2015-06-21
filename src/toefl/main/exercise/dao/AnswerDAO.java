@@ -60,4 +60,12 @@ public class AnswerDAO implements DAO<Answer>{
 		return null;
 	}
 
+	@Override
+	public void insert(Answer model) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 }

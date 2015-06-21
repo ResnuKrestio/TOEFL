@@ -52,4 +52,12 @@ public class ExerciseDAO implements DAO<Exercise>{
 		return exercise;
 	}
 
+	@Override
+	public void insert(Exercise model) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 }

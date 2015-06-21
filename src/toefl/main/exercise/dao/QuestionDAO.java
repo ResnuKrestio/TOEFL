@@ -53,4 +53,12 @@ public class QuestionDAO implements DAO<Question>{
 		return null;
 	}
 
+	@Override
+	public void insert(Question model) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 }
