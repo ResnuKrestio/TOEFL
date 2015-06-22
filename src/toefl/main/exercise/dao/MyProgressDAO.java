@@ -36,7 +36,7 @@ public class MyProgressDAO implements DAO<MyProgress>{
 			psmt.setInt(2, model.getScore());
 			psmt.setString(3, model.getTime());
 			psmt.setInt(4, model.getPackage1());
-			psmt.executeQuery();
+			psmt.execute();
 			ConnectionManager.close();
 		} catch (IOException | SQLException e) {
 			// TODO Auto-generated catch block
