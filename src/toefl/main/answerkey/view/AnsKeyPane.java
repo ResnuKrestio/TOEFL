@@ -40,7 +40,15 @@ public class AnsKeyPane extends JPanel {
 	Question questionData;
 	Answer answerData;
 	AnswerInfo answerInfoData;
-	int index;
+	int index = 0;
+	private JLabel questionLbl;
+	private JLabel optionALbl;
+	private JLabel optionBLbl;
+	private JLabel optionCLbl;
+	private JLabel optionDLbl;
+	private JTextPane keywordField;
+	private JTextPane grammaticalDiscussionField;
+	private JTextPane explainationField;
 
 	public AnsKeyPane() {
 		loadImage();
@@ -110,7 +118,7 @@ public class AnsKeyPane extends JPanel {
 		nextBtn.setBounds(10, 439, 50, 50);
 		navigationPanel.add(nextBtn);
 
-		JLabel questionLbl = new JLabel();
+		questionLbl = new JLabel();
 		questionLbl.setText(questionData.getQuestion());
 		questionLbl.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		questionLbl.setBounds(10, 11, 689, 50);
@@ -125,36 +133,36 @@ public class AnsKeyPane extends JPanel {
 		BLbl.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		BLbl.setBounds(10, 133, 50, 50);
 		workspacePanel.add(BLbl);
-		
+
 		JLabel CLbl = new JLabel("C.");
 		CLbl.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		CLbl.setBounds(10, 194, 50, 50);
 		workspacePanel.add(CLbl);
-		
+
 		JLabel DLbl = new JLabel("D.");
 		DLbl.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		DLbl.setBounds(10, 255, 50, 50);
 		workspacePanel.add(DLbl);
-		
-		JLabel optionALbl = new JLabel();
+
+		optionALbl = new JLabel();
 		optionALbl.setText(answerData.getAnswerA());
 		optionALbl.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		optionALbl.setBounds(40, 72, 604, 50);
 		workspacePanel.add(optionALbl);
 
-		JLabel optionBLbl = new JLabel("Opsi B");
+		optionBLbl = new JLabel("Opsi B");
 		optionBLbl.setText(answerData.getAnswerB());
 		optionBLbl.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		optionBLbl.setBounds(36, 133, 614, 50);
 		workspacePanel.add(optionBLbl);
 
-		JLabel optionCLbl = new JLabel("Opsi C");
+		optionCLbl = new JLabel("Opsi C");
 		optionCLbl.setText(answerData.getAnswerC());
 		optionCLbl.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		optionCLbl.setBounds(36, 194, 614, 50);
 		workspacePanel.add(optionCLbl);
 
-		JLabel optionDLbl = new JLabel("Opsi D");
+		optionDLbl = new JLabel("Opsi D");
 		optionDLbl.setText(answerData.getAnswerD());
 		optionDLbl.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		optionDLbl.setBounds(36, 255, 614, 50);
@@ -165,44 +173,66 @@ public class AnsKeyPane extends JPanel {
 		keywordLbl.setBounds(10, 307, 60, 20);
 		workspacePanel.add(keywordLbl);
 
-		JTextPane keywordField = new JTextPane();
-		keywordField.setText("Key Word");
+		JLabel grammaticalDiscussionLbl = new JLabel("Grammatical Discussion :");
+		grammaticalDiscussionLbl.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		grammaticalDiscussionLbl.setBounds(10, 338, 146, 14);
+		workspacePanel.add(grammaticalDiscussionLbl);
+
+		JLabel explanationLbl = new JLabel("Explaination :");
+		explanationLbl.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		explanationLbl.setBounds(10, 363, 80, 14);
+		workspacePanel.add(explanationLbl);
+
+		keywordField = new JTextPane();
+		keywordField.setText(answerInfoData.getKeyword());
 		keywordField.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		keywordField.setEditable(false);
 		keywordField.setBounds(154, 307, 500, 20);
 		workspacePanel.add(keywordField);
 
-		JLabel lblGrammaticalDiscussion = new JLabel("Grammatical Discussion :");
-		lblGrammaticalDiscussion.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		lblGrammaticalDiscussion.setBounds(10, 338, 146, 14);
-		workspacePanel.add(lblGrammaticalDiscussion);
+		grammaticalDiscussionField = new JTextPane();
+		grammaticalDiscussionField.setText(answerInfoData.getGramaticalDisc());
+		grammaticalDiscussionField.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		grammaticalDiscussionField.setEditable(false);
+		grammaticalDiscussionField.setBounds(154, 338, 500, 20);
+		workspacePanel.add(grammaticalDiscussionField);
 
-		JTextPane txtpnGrammarText = new JTextPane();
-		txtpnGrammarText.setText("Grammar Text");
-		txtpnGrammarText.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		txtpnGrammarText.setEditable(false);
-		txtpnGrammarText.setBounds(154, 338, 500, 20);
-		workspacePanel.add(txtpnGrammarText);
-
-		JLabel lblExplaination = new JLabel("Explaination :");
-		lblExplaination.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		lblExplaination.setBounds(10, 363, 80, 14);
-		workspacePanel.add(lblExplaination);
-
-		JTextPane txtpnExplainationAboutThis = new JTextPane();
-		txtpnExplainationAboutThis.setText("Explaination About this Task");
-		txtpnExplainationAboutThis.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		txtpnExplainationAboutThis.setEditable(false);
-		txtpnExplainationAboutThis.setBounds(154, 363, 500, 126);
-		workspacePanel.add(txtpnExplainationAboutThis);
+		explainationField = new JTextPane();
+		explainationField.setText(answerInfoData.getExplanation());
+		explainationField.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		explainationField.setEditable(false);
+		explainationField.setBounds(154, 363, 500, 126);
+		workspacePanel.add(explainationField);
 
 	}
 
 	private void loadData() {
+		Datapool.init();
 		exercises = new ArrayList<>();
 		exercises = Datapool.getListExercises();
+		for (Exercise exercise : exercises) {
+			if (exercise.getId()==2) {
+				questions = new ArrayList<>();
+				questions.addAll(exercise.getQuestions());
+				answers = new ArrayList<>();
+				answers.addAll(exercise.getAnswers());
+				answerInfos = new ArrayList<>();
+				answerInfos.addAll(exercise.getAnswerInfos());
+			}
+		}
+		updateData(index);
+	}
+
+	private void updateData(int index) {
+		// update data
+		
 		questionData = new Question();
+		questionData = questions.get(index);
 		answerData = new Answer();
+		answerData = answers.get(index);
+		answerInfoData = new AnswerInfo();
+		answerInfoData = answerInfos.get(index);
+
 	}
 
 	private void loadImage() {
@@ -217,14 +247,30 @@ public class AnsKeyPane extends JPanel {
 			e1.printStackTrace();
 		}
 	}
-	
+
 	private void previous() {
-		// TODO Auto-generated method stub
-		
+		index =index - 1;
+		updateData(index);
+		updateView();
 	}
-	
+
 	private void next() {
-		// TODO Auto-generated method stub
-		
+		index = index + 1;
+		updateData(index);
+		updateView();
+	}
+
+	private void updateView() {
+		questionLbl.setText(questionData.getQuestion());
+		optionALbl.setText(answerData.getAnswerA());
+		optionBLbl.setText(answerData.getAnswerB());
+		optionCLbl.setText(answerData.getAnswerC());
+		optionDLbl.setText(answerData.getAnswerD());
+		keywordField.setText(answerInfoData.getKeyword());
+		grammaticalDiscussionField.setText(answerInfoData.getGramaticalDisc());
+		explainationField.setText(answerInfoData.getExplanation());
+		revalidate();
+		repaint();
+		updateUI();
 	}
 }
