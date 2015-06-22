@@ -21,7 +21,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import config.Datapool;
 import screen.MainFrame;
+import toefl.main.exercise.model.MyProgress;
 import toefl.main.mynotes.model.MyNoteObj;
 
 /**
@@ -32,6 +34,7 @@ public class MyNotes {
 
 	public Component myNote() {
 
+		Datapool.init();
 		JPanel panelMyNotes = new JPanel();
 		final JPanel panelTable = new JPanel();
 		panelMyNotes.setBounds(1, 1, MainFrame.navigationPanel.getWidth() - 5,MainFrame.navigationPanel.getHeight() - 5);
@@ -42,36 +45,15 @@ public class MyNotes {
 
 		Date date = new Date();
 		DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-		String[] columnName = {"Date", "Score", "Package"};
-		List<MyNoteObj> myNoteObjs = new ArrayList<MyNoteObj>();
-		MyNoteObj obj1 = new MyNoteObj();
-		MyNoteObj obj2 = new MyNoteObj();
-		MyNoteObj obj3 = new MyNoteObj();
-		MyNoteObj obj4 = new MyNoteObj();
-		obj1.setDate(dateFormat.format(date));
-		obj1.setScore(550);
-		obj1.setPaket("30S01");
-		obj2.setDate(dateFormat.format(date));
-		obj2.setScore(500);
-		obj2.setPaket("20S02");
-		obj3.setDate(dateFormat.format(date));
-		obj3.setScore(650);
-		obj3.setPaket("30S01");
-		obj4.setDate(dateFormat.format(date));
-		obj4.setScore(550);
-		obj4.setPaket("30S01");
-		myNoteObjs.add(obj1);
-		myNoteObjs.add(obj2);
-		myNoteObjs.add(obj3);
-		myNoteObjs.add(obj4);
-		
+		String[] columnName = {"Date", "Score", "Time", "Package"};
 		DefaultTableModel model = new DefaultTableModel();
 		model.setColumnIdentifiers(columnName);
-		for (MyNoteObj myNoteObj : myNoteObjs) {
-			Object[] objects = new Object[3];
+		for (MyProgress myNoteObj : Datapool.getMyProgress()) {
+			Object[] objects = new Object[4];
 			objects[0] = myNoteObj.getDate();
 			objects[1] = myNoteObj.getScore();
-			objects[2] = myNoteObj.getPaket();
+			objects[2] = myNoteObj.getTime();
+			objects[3] = myNoteObj.getPackage1();
 			model.addRow(objects);
 		}
 		JTable table = new JTable(model);
