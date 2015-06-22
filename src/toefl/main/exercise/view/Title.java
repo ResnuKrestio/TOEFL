@@ -36,7 +36,8 @@ public class Title extends JPanel {
 	public static int count;
 	public static int delay;
 	public static int detik;
-	Exercise exercise;
+	static Exercise exercise;
+	static Package package1;
 	String time = null;
 	String a = "A";
 	String b = "B";
@@ -53,7 +54,7 @@ public class Title extends JPanel {
 	public Title(final Exercise exercise, Package package1) {
 		Datapool.init();
 		this.exercise = exercise;
-		
+		this.package1 = package1;
 		count = exercise.getQuestions().size()+1;
 		delay = package1.getDuration()*1000;
 		detik = 30000/1000;
@@ -182,7 +183,7 @@ public class Title extends JPanel {
 		}
 		
 		System.out.println("Size List = "+retainList.size());
-		ScoreFrame scoreFrame = new ScoreFrame(scoreInt);
+		ScoreFrame scoreFrame = new ScoreFrame(exercise, package1, scoreInt);
 		scoreFrame.setVisible(true);
 	}
 }

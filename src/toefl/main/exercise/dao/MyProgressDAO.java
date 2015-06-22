@@ -3,7 +3,6 @@ package toefl.main.exercise.dao;
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import toefl.main.exercise.model.MyProgress;
@@ -29,13 +28,13 @@ public class MyProgressDAO implements DAO<MyProgress>{
 
 	@Override
 	public void insert(MyProgress model) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		try {
 			psmt = ConnectionManager.initPreparedStatement(insert);
-			psmt.setString(1, sdf.format(model.getDate()));
+			psmt.setString(1, model.getDate());
 			psmt.setInt(2, model.getScore());
 			psmt.setString(3, model.getTime());
-			psmt.setInt(4, model.getPackage1());
+			psmt.setString(4, model.getPackage1());
+			System.out.println("Insert Succes");
 			psmt.execute();
 			ConnectionManager.close();
 		} catch (IOException | SQLException e) {

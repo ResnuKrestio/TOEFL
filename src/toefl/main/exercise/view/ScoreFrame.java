@@ -1,7 +1,12 @@
 package toefl.main.exercise.view;
 
 import java.awt.Dialog.ModalExclusionType;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Font;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,18 +15,25 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import toefl.main.exercise.dao.MyProgressDAO;
+import toefl.main.exercise.model.Exercise;
+import toefl.main.exercise.model.MyProgress;
+import toefl.main.exercise.model.Package;
+
 public class ScoreFrame extends JFrame {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;	
+	private JPanel contentPane;
+	Date date = new Date();
+	DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
 	/**
 	 * Create the frame.
 	 */
-	public ScoreFrame(int score) {
+	public ScoreFrame(final Exercise exercise, final Package package1, final int score) {
 		setType(Type.UTILITY);
 		setModalExclusionType(ModalExclusionType.APPLICATION_EXCLUDE);
 		setTitle("Score");
@@ -54,10 +66,33 @@ public class ScoreFrame extends JFrame {
 		btnSaveToMyb.setBounds(10, 142, 160, 30);
 		panelScore.add(btnSaveToMyb);
 		
-		JButton btnNewButton = new JButton("CANCEL");
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton.setBounds(274, 142, 160, 30);
-		panelScore.add(btnNewButton);
+		btnSaveToMyb.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				MyProgress progress = new MyProgress();
+				progress.setDate(dateFormat.format(date));
+				progress.setScore(score);
+				progress.setTime(package1.getDuration()+" Detik");
+				progress.setPackage1(exercise.getName());
+				MyProgressDAO myProgressDAO = new MyProgressDAO();
+				myProgressDAO.insert(progress);
+				dispose();
+			}
+		});
 		
+		JButton btnCancel = new JButton("CANCEL");
+		btnCancel.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnCancel.setBounds(274, 142, 160, 30);
+		
+		btnCancel.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		panelScore.add(btnCancel);		
 	}
 }

@@ -1,6 +1,5 @@
 package toefl.main.exercise.model;
 
-import toefl.main.exercise.dao.AnswerDAO;
 import config.Datapool;
 
 public class Answer {
