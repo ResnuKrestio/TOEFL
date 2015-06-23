@@ -11,11 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
+import javax.swing.border.Border;
 
 import screen.MainFrame;
 import toefl.main.exercise.model.Answer;
@@ -49,6 +51,12 @@ public class AnsKeyPane extends JPanel {
 	private JTextPane keywordField;
 	private JTextPane grammaticalDiscussionField;
 	private JTextPane explainationField;
+	private JLabel ALbl;
+	private JLabel BLbl;
+	private JLabel CLbl;
+	private JLabel DLbl;
+	Border border = BorderFactory.createLineBorder(Color.green, 5);
+	Border noBorder = BorderFactory.createEmptyBorder();
 
 	public AnsKeyPane() {
 		loadImage();
@@ -73,6 +81,7 @@ public class AnsKeyPane extends JPanel {
 		btnKeyword.setIcon(new ImageIcon(keywordImg));
 		btnKeyword.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				showKeyword();
 			}
 		});
 
@@ -83,6 +92,7 @@ public class AnsKeyPane extends JPanel {
 		btnGrammar.setIcon(new ImageIcon(grammarImg));
 		btnGrammar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				showGrammar();
 			}
 		});
 		btnGrammar.setBounds(10, 72, 50, 50);
@@ -90,11 +100,25 @@ public class AnsKeyPane extends JPanel {
 
 		JButton btnExplain = new JButton();
 		btnExplain.setIcon(new ImageIcon(explanationImg));
+		btnExplain.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				showExplanation();
+			}
+		});
 		btnExplain.setBounds(10, 133, 50, 50);
 		navigationPanel.add(btnExplain);
 
 		JButton btnPDF = new JButton();
 		btnPDF.setIcon(new ImageIcon(pdfImg));
+		btnPDF.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				showPdf();
+			}
+		});
 		btnPDF.setBounds(10, 194, 50, 50);
 		navigationPanel.add(btnPDF);
 
@@ -124,22 +148,22 @@ public class AnsKeyPane extends JPanel {
 		questionLbl.setBounds(10, 11, 689, 50);
 		workspacePanel.add(questionLbl);
 
-		JLabel ALbl = new JLabel("A.");
+		ALbl = new JLabel("A.");
 		ALbl.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		ALbl.setBounds(10, 72, 30, 50);
+		ALbl.setBounds(10, 72, 50, 50);
 		workspacePanel.add(ALbl);
 
-		JLabel BLbl = new JLabel("B.");
+		BLbl = new JLabel("B.");
 		BLbl.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		BLbl.setBounds(10, 133, 50, 50);
 		workspacePanel.add(BLbl);
 
-		JLabel CLbl = new JLabel("C.");
+		CLbl = new JLabel("C.");
 		CLbl.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		CLbl.setBounds(10, 194, 50, 50);
 		workspacePanel.add(CLbl);
 
-		JLabel DLbl = new JLabel("D.");
+		DLbl = new JLabel("D.");
 		DLbl.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		DLbl.setBounds(10, 255, 50, 50);
 		workspacePanel.add(DLbl);
@@ -147,25 +171,25 @@ public class AnsKeyPane extends JPanel {
 		optionALbl = new JLabel();
 		optionALbl.setText(answerData.getAnswerA());
 		optionALbl.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		optionALbl.setBounds(40, 72, 604, 50);
+		optionALbl.setBounds(60, 72, 614, 50);
 		workspacePanel.add(optionALbl);
 
 		optionBLbl = new JLabel("Opsi B");
 		optionBLbl.setText(answerData.getAnswerB());
 		optionBLbl.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		optionBLbl.setBounds(36, 133, 614, 50);
+		optionBLbl.setBounds(60, 133, 614, 50);
 		workspacePanel.add(optionBLbl);
 
 		optionCLbl = new JLabel("Opsi C");
 		optionCLbl.setText(answerData.getAnswerC());
 		optionCLbl.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		optionCLbl.setBounds(36, 194, 614, 50);
+		optionCLbl.setBounds(60, 194, 614, 50);
 		workspacePanel.add(optionCLbl);
 
 		optionDLbl = new JLabel("Opsi D");
 		optionDLbl.setText(answerData.getAnswerD());
 		optionDLbl.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		optionDLbl.setBounds(36, 255, 614, 50);
+		optionDLbl.setBounds(60, 255, 614, 50);
 		workspacePanel.add(optionDLbl);
 
 		JLabel keywordLbl = new JLabel("Key Word :");
@@ -184,26 +208,73 @@ public class AnsKeyPane extends JPanel {
 		workspacePanel.add(explanationLbl);
 
 		keywordField = new JTextPane();
-		keywordField.setText(answerInfoData.getKeyword());
+		//keywordField.setText(answerInfoData.getKeyword());
 		keywordField.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		keywordField.setEditable(false);
 		keywordField.setBounds(154, 307, 500, 20);
 		workspacePanel.add(keywordField);
 
 		grammaticalDiscussionField = new JTextPane();
-		grammaticalDiscussionField.setText(answerInfoData.getGramaticalDisc());
+		//grammaticalDiscussionField.setText(answerInfoData.getGramaticalDisc());
 		grammaticalDiscussionField.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		grammaticalDiscussionField.setEditable(false);
 		grammaticalDiscussionField.setBounds(154, 338, 500, 20);
 		workspacePanel.add(grammaticalDiscussionField);
 
 		explainationField = new JTextPane();
-		explainationField.setText(answerInfoData.getExplanation());
+		//explainationField.setText(answerInfoData.getExplanation());
 		explainationField.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		explainationField.setEditable(false);
 		explainationField.setBounds(154, 363, 500, 126);
 		workspacePanel.add(explainationField);
 
+	}
+
+	protected void showPdf() {
+		try {
+			if ((new File("pdf/example.pdf")).exists()) {
+				Process p = Runtime
+						.getRuntime()
+						.exec("rundll32 url.dll,FileProtocolHandler pdf/example.pdf");
+				p.waitFor();
+			} else {
+				System.out.println("File is not exists");
+			}
+			System.out.println("Done");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	protected void showExplanation() {
+		updateData(index);
+		explainationField.setText(answerInfoData.getExplanation());
+	}
+
+	protected void showGrammar() {
+		updateData(index);
+		grammaticalDiscussionField.setText(answerInfoData.getGramaticalDisc());
+	}
+
+	protected void showKeyword() {
+		updateData(index);
+		if(answerInfoData.getRightAnswer().equals("A")) {
+			ALbl.setBorder(border);
+			optionALbl.setForeground(Color.green);
+		}
+		if(answerInfoData.getRightAnswer().equals("B")) {
+			BLbl.setBorder(border);
+			optionBLbl.setForeground(Color.green);
+		}
+		if(answerInfoData.getRightAnswer().equals("C")) {
+			CLbl.setBorder(border);
+			optionCLbl.setForeground(Color.green);
+		}
+		if(answerInfoData.getRightAnswer().equals("D")) { 
+			DLbl.setBorder(border);
+			optionDLbl.setForeground(Color.green);
+		}
+		keywordField.setText(answerInfoData.getKeyword());
 	}
 
 	private void loadData() {
@@ -225,7 +296,7 @@ public class AnsKeyPane extends JPanel {
 
 	private void updateData(int index) {
 		// update data
-		
+
 		questionData = new Question();
 		questionData = questions.get(index);
 		answerData = new Answer();
@@ -269,6 +340,14 @@ public class AnsKeyPane extends JPanel {
 		keywordField.setText(answerInfoData.getKeyword());
 		grammaticalDiscussionField.setText(answerInfoData.getGramaticalDisc());
 		explainationField.setText(answerInfoData.getExplanation());
+		ALbl.setBorder(noBorder);
+		BLbl.setBorder(noBorder);
+		CLbl.setBorder(noBorder);
+		DLbl.setBorder(noBorder);
+		optionALbl.setForeground(null);
+		optionBLbl.setForeground(null);
+		optionCLbl.setForeground(null);
+		optionDLbl.setForeground(null);
 		revalidate();
 		repaint();
 		updateUI();
