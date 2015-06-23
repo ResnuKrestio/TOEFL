@@ -231,11 +231,15 @@ public class AnsKeyPane extends JPanel {
 	}
 
 	protected void showPdf() {
+		updateData(index);
+		String command = "rundll32 url.dll,FileProtocolHandler ";
+		StringBuffer param = new StringBuffer();
 		try {
-			if ((new File("pdf/example.pdf")).exists()) {
+			if ((new File(answerInfoData.getPdf())).exists()) {
+				param=param.append(command).append(answerInfoData.getPdf());
 				Process p = Runtime
 						.getRuntime()
-						.exec("rundll32 url.dll,FileProtocolHandler pdf/example.pdf");
+						.exec(param.toString());
 				p.waitFor();
 			} else {
 				System.out.println("File is not exists");
