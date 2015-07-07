@@ -282,7 +282,6 @@ public class AnsKeyPane extends JPanel {
 	}
 
 	private void loadData() {
-		Datapool.init();
 		exercises = new ArrayList<>();
 		exercises = Datapool.getListExercises();
 		for (Exercise exercise : exercises) {

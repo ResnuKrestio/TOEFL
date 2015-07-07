@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug" strict="true" name="log4j2" packages="src.*">
+	<Properties>
+		<Property name="applog">log/APF_app.log</Property>
+		<Property name="errlog">log/APF_err.log</Property>
+	</Properties>
+
+	<Appenders>
+		<!-- <Appender type="Console" name="console">
+			<Layout type="PatternLayout">
+				<Pattern>%date{yyyy/MM/dd HH:mm:ss,SSS Z} %-5level %logger{} %method  %L : %m %n</Pattern>
+			</Layout>
+		</Appender> -->
+		<Appender type="RollingRandomAccessFile" name="ApplicationLog" 
+		fileName="${applog}" filePattern="log/APF_app_%d{yyyyMMdd}_%i.log">
+			<Layout type="PatternLayout">
+				<Pattern>%date{yyyy/MM/dd HH:mm:ss,SSS Z} %-5level %logger{} %t "%m"%n</Pattern>
+			</Layout>
+			<Policies>
+				<OnStartupTriggeringPolicy />
+			</Policies>
+		</Appender>
+		<Appender type="RollingRandomAccessFile" name="ErrorLog" 
+		fileName="${errlog}" filePattern="log/APF_err_%d{yyyyMMdd}_%i.log" >
+			<Layout type="Patternlayout">
+				<Pattern>%date{yyyy/MM/dd HH:mm:ss,SSS Z} %-5level %logger{} %method  %L : %m %n</Pattern>
+			</Layout>
+			<Policies>
+				<OnStartupTriggeringPolicy />
+			</Policies>
+		</Appender>
+		
+		<!-- <Appender type="Jdbc" name="HubManagerDatabaseLog" tablename="LOG_INFORMATION">
+			<ConnectionFactory class="com.agci.apf.utility.ConnectionManager"
+				method="getDataSourceNew" />
+			<Column name="LOG_DATE" isEventTimestamp="true" />
+			<Column name="LOG_LEVEL" pattern="%level" />
+			<Column name="LOG_APP_NAME" pattern="%logger" />
+			<Column name="LOG_MSG" pattern="%message" />
+			<Column name="LOG_THROWABLE" pattern="%ex{full}" />
+		</Appender> -->
+		
+	</Appenders>
+	
+	<Loggers>
+		
+		<Logger name="ErrorLog" level="error" additivity="true">
+			<AppenderRef ref="ErrorLog" level="error"/>
+		</Logger>
+		
+		<Logger name="ApplicationLog" level="debug" >
+			<AppenderRef ref="ApplicationLog" level="debug"/>
+		</Logger>
+		
+		<Root level="all">
+			<AppenderRef ref="ApplicationLog" level="debug"/>
+			<AppenderRef ref="ErrorLog" level="error" />
+			<!-- <AppenderRef ref="console" />
+			<AppenderRef ref="HubManagerDatabaseLog" /> -->
+		</Root>
+	</Loggers>
+</Configuration>

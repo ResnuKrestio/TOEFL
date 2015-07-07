@@ -18,6 +18,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import toefl.component.panel.HeaderPanel;
 import toefl.component.panel.NavigationPanel;
 import toefl.component.panel.WorkspacePanel;
@@ -45,12 +48,14 @@ public class MainFrame extends JFrame {
 	public static HeaderPanel headerPanel = new HeaderPanel();
 	public static NavigationPanel navigationPanel = new NavigationPanel();
 
-	/**
-	 * Launch the application.
-	 */
+	static final Logger LOGGER = LogManager.getLogger(MainFrame.class.getName());
+	
 	public static void main(String[] args) {
 		try {
+			LOGGER.debug("initialize configuration manager");
 			ConfigurationManager.init();
+			LOGGER.debug("initialize datapool");
+			Datapool.init();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
