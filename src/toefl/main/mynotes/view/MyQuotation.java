@@ -21,7 +21,7 @@ public class MyQuotation extends JPanel {
 	 * Create the panel.
 	 */
 	public MyQuotation() {
-		
+		loadImage();
 		setBounds(1, 1, MainFrame.workspacePanel.getWidth(), MainFrame.workspacePanel.getHeight());
 		setLayout(null);
 		
