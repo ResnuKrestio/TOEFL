@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import screen.MainFrame;
 
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class MyQuotation extends JPanel {
 	
@@ -21,7 +22,9 @@ public class MyQuotation extends JPanel {
 	 * Create the panel.
 	 */
 	public MyQuotation() {
+		setBackground(Color.WHITE);
 		loadImage();
+		
 		setBounds(1, 1, MainFrame.workspacePanel.getWidth(), MainFrame.workspacePanel.getHeight());
 		setLayout(null);
 		
