@@ -11,7 +11,10 @@ import javax.swing.JPanel;
 import screen.MainFrame;
 
 import javax.swing.JButton;
+
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MyQuotation extends JPanel {
 	
@@ -31,6 +34,14 @@ public class MyQuotation extends JPanel {
 		JButton myPersonalBtn = new JButton();
 		myPersonalBtn.setBounds(156, 23, 200, 310);
 		myPersonalBtn.setIcon(new ImageIcon(myPersonalNotes));
+		myPersonalBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				MyPersonalNote myPersonalNote = new MyPersonalNote();
+				myPersonalNote.isEnabled();
+			}
+		});
 		add(myPersonalBtn);
 		
 		JButton myTrickBtn = new JButton();
