@@ -9,9 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
@@ -21,10 +19,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import config.Datapool;
 import screen.MainFrame;
 import toefl.main.exercise.model.MyProgress;
-import toefl.main.mynotes.model.MyNoteObj;
+import config.Datapool;
 
 /**
  * @author Resnu
@@ -37,6 +34,7 @@ public class MyNotes {
 		Datapool.init();
 		JPanel panelMyNotes = new JPanel();
 		final JPanel panelTable = new JPanel();
+		final MyQuotation myQuotationP = new MyQuotation();
 		panelMyNotes.setBounds(1, 1, MainFrame.navigationPanel.getWidth() - 5,MainFrame.navigationPanel.getHeight() - 5);
 		JRadioButton myProgress = new JRadioButton("My Progress");
 		myProgress.setBounds(1, 1, 50, 20);
@@ -71,6 +69,16 @@ public class MyNotes {
 			public void actionPerformed(ActionEvent e) {
 				MainFrame.workspacePanel.removeAll();
 				MainFrame.workspacePanel.add(panelTable);
+				MainFrame.workspacePanel.repaint();
+			}
+		});
+		
+		myQuotation.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				MainFrame.workspacePanel.removeAll();
+				MainFrame.workspacePanel.add(myQuotationP);
 				MainFrame.workspacePanel.repaint();
 			}
 		});
